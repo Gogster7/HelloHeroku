@@ -28,7 +28,7 @@ import javax.servlet.annotation.WebServlet;
 //private void PrintHead (PrintWriter out) --> Prints the HTML head section
 //private void PrintBody (PrintWriter out) --> Prints the HTML body with
 //          the form. Fields are blank.
-//private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
+//private void PrintBody (PrintWriter out, String lhs, String rhs, String result)
 //          Prints the HTML body with the form.
 //          Fields are filled from the parameters.
 //private void PrintTail (PrintWriter out) --> Prints the HTML bottom
@@ -82,7 +82,7 @@ else if (operation.equals(OperationS2F))
 response.setContentType("text/html");
 PrintWriter out = response.getWriter();
 PrintHead(out);
-PrintBody(out, lhsStr, rhsStr, rslt.toString());
+PrintBody(out, lhsStr, rhsStr, result.toString());
 PrintTail(out);
 }  // End doPost
 
@@ -120,7 +120,7 @@ out.println("");
 *  Prints the <BODY> of the HTML page with the form data
 *  values from the parameters.
 ********************************************************* */
-private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
+private void PrintBody (PrintWriter out, String lhs, String rhs, String result)
 {
 out.println("<body>");
 out.println("<p>");
@@ -150,7 +150,7 @@ out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size
 out.println("  </tr>");
 out.println("  <tr>");
 out.println("   <td>Result:");
-out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=6>");
+out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + result + "\" size=6>");
 out.println("  </tr>");
 out.println(" </table>");
 out.println(" <br>");
@@ -164,7 +164,7 @@ out.println("</body>");
 } // End PrintBody
 
 /** *****************************************************
-*  Overloads PrintBody (out,lhs,rhs,rslt) to print a page
+*  Overloads PrintBody (out,lhs,rhs,result) to print a page
 *  with blanks in the form fields.
 ********************************************************* */
 private void PrintBody (PrintWriter out)
