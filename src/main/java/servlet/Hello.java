@@ -1,10 +1,11 @@
 //Simple example servlet from slides
 import javax.servlet.*; // servlet library
-
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*; // servlet library
 import java.io.*;
+import javax.servlet.annotation.WebServlet;
 
+//The @WebServletannotation is used to declare a servlet 
+@WebServlet(name = "FirstServlet", urlPatterns = {"/Hello"})
 public class Hello extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
@@ -26,4 +27,5 @@ out.println("</body>");
 out.println("</html>");
 out.close();
 }  // end doGet()
-}  // end Hell
+}  // end Hell0
+
