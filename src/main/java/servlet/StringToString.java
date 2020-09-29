@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 //David: (1) adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
-@WebServlet( name = "StringToString", urlPatterns = {"/InClass5"} )
+@WebServlet( name = "String2String", urlPatterns = {"/InClass5"} )
 
 //twoButtons class
 //CONSTRUCTOR: no constructor specified (default)
@@ -41,7 +41,7 @@ public class StringToString extends HttpServlet
 //David: (5) adds the path of your form submit action
 static String Domain  = "";
 static String Path    = "";
-static String Servlet = "string2string";
+static String Servlet = "String2String";
 
 //Button labels
 static String OperationF2S = "First->Second";
