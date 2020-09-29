@@ -64,10 +64,6 @@ String result = "";
 String operation = request.getParameter("Operation");
 String lhsStr = request.getParameter("LHS");
 String rhsStr = request.getParameter("RHS");
-if (lhsStr != null)
-  lhsStr = "";
-if (rhsStr != null)
-	  rhsStr = "";
 
 if (operation.equals(OperationF2S))
 {
