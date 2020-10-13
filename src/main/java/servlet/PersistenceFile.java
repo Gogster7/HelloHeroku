@@ -108,7 +108,7 @@ public class PersistenceFile extends HttpServlet{
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
      printHead(out);
-     printBody(out, "", "", "");
+     printBody(out, "", "", "", "");
      printTail(out);
   }
 
@@ -134,7 +134,7 @@ public class PersistenceFile extends HttpServlet{
    *  Prints the <BODY> of the HTML page
   ********************************************************* */
   private void printBody (
-    PrintWriter out, String name, String age, String error){
+    PrintWriter out, String name, String age, String song, String error){
      out.println("<body onLoad=\"setFocus()\">");
      out.println("<p>");
      out.println(
