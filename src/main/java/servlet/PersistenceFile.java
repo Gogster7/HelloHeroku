@@ -20,7 +20,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
 public class PersistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME};
+  static enum Data {AGE, NAME, SONG};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
@@ -45,6 +45,7 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
+     String song = request.getParameter(Data.AGE.name());
 
      String error = "";
      if(name == null){
@@ -55,6 +56,11 @@ public class PersistenceFile extends HttpServlet{
      if(age == null){
        error+= "<li>Age is required.<li>";
        age = "";
+     }
+     
+     if(song == null){
+       error+= "<li>Song Name is required.<li>";
+       song = "";
      }else{
           try{
             Integer ageInteger =new Integer(age);
@@ -79,7 +85,7 @@ public class PersistenceFile extends HttpServlet{
      if (error.length() == 0){
        PrintWriter entriesPrintWriter =
           new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+song);
        entriesPrintWriter.close();
 
        printHead(out);
@@ -87,7 +93,7 @@ public class PersistenceFile extends HttpServlet{
        printTail(out);
      }else{
        printHead(out);
-       printBody(out, name, age, error);
+       printBody(out, name, age, song, error);
        printTail(out);
      }
   }
@@ -159,6 +165,11 @@ public class PersistenceFile extends HttpServlet{
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
      out.println("  </tr>");
+     out.println("  <tr>");
+     out.println("   <td>Song:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.SONG.name()
+      +"\" value=\""+song+"\" size=30 required></td>");
+     out.println("  </tr>");
      out.println(" </table>");
      out.println(" <br>");
      out.println(" <br>");
@@ -186,6 +197,7 @@ public class PersistenceFile extends HttpServlet{
         out.println("  <tr>");
         out.println("   <th>Name</th>");
         out.println("   <th>Age</th>");
+        out.println("   <th>Song</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
         if(!file.exists()){
