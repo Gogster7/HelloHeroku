@@ -331,6 +331,17 @@ public class assignment5 extends HttpServlet{
 		out.println("    </ul>");
 		out.println("    <br />    <br />    <br />");
 		out.println("");
+		out.println("    <form method=\"display\" action=\"\\assignment5\">");
+		out.println("        <center>");
+		out.println("			<select name=“display“>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE?FALSE</option>");
+		out.println("		</select>");
+		out.println("		</center>");
+		out.println("	 </form>");
 		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
 		out.println("            <label for=\"logicalOperation\">Enter Logical Operation:</label>");
@@ -339,7 +350,6 @@ public class assignment5 extends HttpServlet{
 		out.println("        </center>");
 		out.println("    </form>");
 		out.println("</body>");
-		out.println("");
 		out.println("");
 		
 	}
@@ -390,6 +400,17 @@ public class assignment5 extends HttpServlet{
 		out.println("    </ul>");
 		out.println("    <br />    <br />    <br />");
 		out.println("");
+		out.println("    <form method=\"display\" action=\"\\assignment5\">");
+		out.println("        <center>");
+		out.println("			<select name=“display“>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE?FALSE</option>");
+		out.println("		</select>");
+		out.println("		</center>");
+		out.println("	 </form>");
 		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
 		out.println("            <label for=\"logicalOperation\">Enter Logical Operation:</label>");
