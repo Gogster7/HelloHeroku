@@ -271,8 +271,6 @@ public class assignment5 extends HttpServlet{
 	}
 
 
-
-	
 	/** *****************************************************
 	 *  Overrides HttpServlet's doGet().
 	 *  Prints an HTML page with a blank form.
@@ -317,16 +315,17 @@ public class assignment5 extends HttpServlet{
 		out.println("    <h4><center>In order to calculate the final value of the logical operation, type in the predicate with the following constraints:</center></h4>");
 		out.println("");
 		out.println("    <ul>");
-		out.println("        <li>The entry should be typed in the format of (TRUE/FALSE)(LOGICAL OPERATOR)(TRUE/FALSE)</li>");
+		out.println("        <li>The entry should be typed in the format of (Variable A)(LOGICAL OPERATOR)(Variable B)</li>");
 		out.println("        <li>");
-		out.println("            The entry can also be an extention of the format described above. There can be multiple True/False statements with logical operations in between them. For example, you can enter");
-		out.println("            \"TRUE OR FALSE\",which would give you TRUE, and you could also enter \"FALSE AND(FALSE AND TRUE)\", which would result in False.");
+		out.println("            The entry can also be an extention of the format described above. There can be multiple Variables with logical operations in between them. For example, you can enter");
+		out.println("            \"Apple OR Orange\",which would give you its Truth Table Values.");
+		out.println("            Variables can be any letter or Name. Each Variable and Operand must be separated by a space.");
 		out.println("        </li>");
 		out.println("    </ul>");
 		out.println("    <h4><center>Options for supported logical symbols:</center></h4>");
 		out.println("    <ul>");
-		out.println("        <li>Supported symbols for AND: \"&&\", \"AND\", \"&\", \"^\"</li>");
-		out.println("        <li>Supported symbols for OR: \"||\", \"|\", OR, \"V\" </li>");
+		out.println("        <li>Supported symbols for AND: \"&&\", \"AND\", \"&\", \"^\", \"*\"</li>");
+		out.println("        <li>Supported symbols for OR: \"||\", \"|\", OR, \"V\", \"+\" </li>");
 		out.println("        <li>Supported symbols for NOT: \"~\", \"NOT\", \"!\"</li>");
 		out.println("        <li>Supported symbols for EQUAL: \"==\", \"=\", \"EQUAL\"</li>");
 		out.println("    </ul>");
@@ -377,14 +376,15 @@ public class assignment5 extends HttpServlet{
 		out.println("    <ul>");
 		out.println("        <li>The entry should be typed in the format of (Variable A)(LOGICAL OPERATOR)(Variable B)</li>");
 		out.println("        <li>");
-		out.println("            The entry can also be an extention of the format described above. There can be multiple True/False statements with logical operations in between them. For example, you can enter");
-		out.println("            \"TRUE OR FALSE\",which would give you TRUE, and you could also enter \"FALSE AND(FALSE AND TRUE)\", which would result in False.");
+		out.println("            The entry can also be an extention of the format described above. There can be multiple Variables with logical operations in between them. For example, you can enter");
+		out.println("            \"Apple OR Orange\",which would give you its Truth Table Values.");
+		out.println("            Variables can be any letter or Name. Each Variable and Operand must be separated by a space.");
 		out.println("        </li>");
 		out.println("    </ul>");
 		out.println("    <h4><center>Options for supported logical symbols:</center></h4>");
 		out.println("    <ul>");
-		out.println("        <li>Supported symbols for AND: \"&&\", \"AND\", \"&\", \"^\"</li>");
-		out.println("        <li>Supported symbols for OR: \"||\", \"|\", OR, \"V\" </li>");
+		out.println("        <li>Supported symbols for AND: \"&&\", \"AND\", \"&\", \"^\", \"*\"</li>");
+		out.println("        <li>Supported symbols for OR: \"||\", \"|\", OR, \"V\", \"+\" </li>");
 		out.println("        <li>Supported symbols for NOT: \"~\", \"NOT\", \"!\"</li>");
 		out.println("        <li>Supported symbols for EQUAL: \"==\", \"=\", \"EQUAL\"</li>");
 		out.println("    </ul>");
