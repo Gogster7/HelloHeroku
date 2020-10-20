@@ -69,7 +69,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println("</html>");
       out.close();
    } //end if
-
+   else {
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
 
@@ -131,5 +131,6 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("</body>");
    out.println("</html>");
    out.close();
+   } //end else
 } // End doGet
 } //End  SessionLifeCycle
