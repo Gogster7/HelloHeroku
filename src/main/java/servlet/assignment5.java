@@ -102,11 +102,11 @@ public class assignment5 extends HttpServlet{
 		// Change Display Feature
 		String t = "1"; // Default setting
 		String f = "0";
-	    String[][] temp = Table;
-	    if (displayOptions.size() > 0) {
-	    	t = displayOptions.get(0);
-	    	f = displayOptions.get(1);
-	    }
+	    	String[][] temp = Table;
+	    //if (displayOptions.size() > 0) {
+	    //	t = displayOptions.get(0);
+	    //	f = displayOptions.get(1);
+	    //}
 
 		changeDisplay(t, f, temp);
 		
