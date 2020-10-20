@@ -12,12 +12,41 @@ import java.util.Enumeration;
 @WebServlet(name = "attributeServlet", urlPatterns = {"/attribute"})
 public class AttributeServlet extends HttpServlet
 {
+	// The link will have a parameter builtin
+    String lifeCycleURL = "/attribute";
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {
-   // Get session object
-   HttpSession session = request.getSession();
+	// Get session object
+	HttpSession session = request.getSession();
+	if (action != null && action.equals("invalidate"))
+	   {  // Called from the invalidate button, kill the session.
+	      // Get session object
+	      session = request.getSession();
+	      session.invalidate();
 
+	      response.setContentType("text/html");
+	      PrintWriter out = response.getWriter();
+
+	      out.println("<html>");
+	      out.println("<head>");
+	      out.println(" <title>In Class Assignment</title>");
+	      out.println("</head>");
+	      out.println("");
+	      out.println("<body>");
+
+	      out.println("<p>Your session has been invalidated.</P>");
+
+	      // Create a link so the user can create a new session.
+	    
+	      out.println("<a href=\"" + lifeCycleURL + "?action=newSession\">");
+	      out.println("Create new session</A>");
+
+	      out.println("</body>");
+	      out.println("</html>");
+	      out.close();
+	   } //end if
+	else { 
    String action = request.getParameter("action");
    String name   = request.getParameter("attrib_name");
    String value  = request.getParameter("attrib_value");
@@ -41,35 +70,6 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       }
 
    }
-   
-   if (action != null && action.equals("invalidate"))
-   {  // Called from the invalidate button, kill the session.
-      // Get session object
-      HttpSession session = request.getSession();
-      session.invalidate();
-
-      response.setContentType("text/html");
-      PrintWriter out = response.getWriter();
-
-      out.println("<html>");
-      out.println("<head>");
-      out.println(" <title>Session lifecycle</title>");
-      out.println("</head>");
-      out.println("");
-      out.println("<body>");
-
-      out.println("<p>Your session has been invalidated.</P>");
-
-      // Create a link so the user can create a new session.
-    
-      out.println("<a href=\"" + lifeCycleURL + "?action=newSession\">");
-      out.println("Create new session</A>");
-
-      out.println("</body>");
-      out.println("</html>");
-      out.close();
-   } //end if
-   else {
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
 
