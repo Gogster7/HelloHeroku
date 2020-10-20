@@ -19,6 +19,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 {
 	// Get session object
 	HttpSession session = request.getSession();
+	String action = request.getParameter("action");
 	if (action != null && action.equals("invalidate"))
 	   {  // Called from the invalidate button, kill the session.
 	      // Get session object
@@ -47,7 +48,6 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 	      out.close();
 	   } //end if
 	else { 
-   String action = request.getParameter("action");
    String name   = request.getParameter("attrib_name");
    String value  = request.getParameter("attrib_value");
    String remove = request.getParameter("attrib_remove");
