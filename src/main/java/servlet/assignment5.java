@@ -15,40 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "assignment5", urlPatterns = {"/assignment5"} )
 
-class EquationVariables {
-	
-	private boolean state;
-	private String name;
-	
-	/**
-	 * Stores variables with a name and a binary state (1 or 0)
-	 */
-	public EquationVariables(String theName, boolean theState){
-		name = theName;
-		state = theState;
-	}
-	
-	// Returns the binary state 
-	public boolean getState(){
-		return state;
-	}
-	
-	// Returns the name 
-	public String getName(){
-		return name;
-	}
-
-	public void setState(boolean b){
-		state = b;	
-	}
-	
-	@Override
-	public String toString() {
-		return ("Variable: " + this.getName()+ " Value: " + this.getState());
-	}
-		
-}
-
 public class assignment5 extends HttpServlet{
 	static enum Data {LOGICALOPERATION};
 	
@@ -441,9 +407,39 @@ public class assignment5 extends HttpServlet{
 		out.println("");
 		
 	}
-	
-	
-	
-	
 
+}
+
+class EquationVariables {
+	
+	private boolean state;
+	private String name;
+	
+	/**
+	 * Stores variables with a name and a binary state (1 or 0)
+	 */
+	public EquationVariables(String theName, boolean theState){
+		name = theName;
+		state = theState;
+	}
+	
+	// Returns the binary state 
+	public boolean getState(){
+		return state;
+	}
+	
+	// Returns the name 
+	public String getName(){
+		return name;
+	}
+
+	public void setState(boolean b){
+		state = b;	
+	}
+	
+	@Override
+	public String toString() {
+		return ("Variable: " + this.getName()+ " Value: " + this.getState());
+	}
+		
 }
