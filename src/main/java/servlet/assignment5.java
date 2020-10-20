@@ -47,7 +47,7 @@ public class assignment5 extends HttpServlet{
 		//get vars
 		String logicalOperation = request.getParameter(Data.LOGICALOPERATION.name()); //"A & B"
 		String displaySelection = request.getParameter(Data.DISPLAY.name()); //"TRUE/FALSE"
-		ArrayList<String> displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
+		//ArrayList<String> displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
 		
 		//Parse it into a structure that separates boolean variables and logical operators
 		 ArrayList legalOps = new ArrayList(Arrays.asList("&&", "AND", "&","*", "^", "+", "||", "|", "OR", "V", "~", "NOT", "!", "==", "=", "EQUAL"));
@@ -340,12 +340,12 @@ public class assignment5 extends HttpServlet{
 		out.println("");
 		out.println("    <form method=\"display\" action=\"\\assignment5\">");
 		out.println("        <center>");
-		out.println("			<select name=“DISPLAY“>");
-		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
-		out.println("			<option value=“T/F”>T/F</option>");
-		out.println("			<option value=“t/f”>t/f</option>");
-		out.println("			<option value=“X/O”>X/O</option>");
-		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
+		out.println("			<select name=Â“DISPLAYÂ“>");
+		out.println("		  	<option value=Â“1/0Â” selected=Â“selectedÂ”>1/0</option>");
+		out.println("			<option value=Â“T/FÂ”>T/F</option>");
+		out.println("			<option value=Â“t/fÂ”>t/f</option>");
+		out.println("			<option value=Â“X/OÂ”>X/O</option>");
+		out.println("			<option value=Â“TRUE/FALSEÂ”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
@@ -409,12 +409,12 @@ public class assignment5 extends HttpServlet{
 		out.println("");
 		out.println("    <form method=\"display\" action=\"\\assignment5\">");
 		out.println("        <center>");
-		out.println("			<select name=“DISPLAY“>");
-		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
-		out.println("			<option value=“T/F”>T/F</option>");
-		out.println("			<option value=“t/f”>t/f</option>");
-		out.println("			<option value=“X/O”>X/O</option>");
-		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
+		out.println("			<select name=Â“DISPLAYÂ“>");
+		out.println("		  	<option value=Â“1/0Â” selected=Â“selectedÂ”>1/0</option>");
+		out.println("			<option value=Â“T/FÂ”>T/F</option>");
+		out.println("			<option value=Â“t/fÂ”>t/f</option>");
+		out.println("			<option value=Â“X/OÂ”>X/O</option>");
+		out.println("			<option value=Â“TRUE/FALSEÂ”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
