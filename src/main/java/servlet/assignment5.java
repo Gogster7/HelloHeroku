@@ -84,9 +84,9 @@ public class assignment5 extends HttpServlet{
 	     if (variableArray.size() > 0){
 	    	 Table = TruthTable(variableArray, equationArray);
 	    	 // check if Final input has error
-	    	 //if (Table[Table.length-1][Table.length-1] == "E") {
-	    	 //	 makeTable = false;
-	    	 //}
+	    	 if (Table[Table.length - 1][Table[Table.length-1].length - 1] == "E") {
+	    		 makeTable = false;makeTable = false;
+	    	 }
 	     }
 		
 		//remove nulls from arrayEq
@@ -123,9 +123,9 @@ public class assignment5 extends HttpServlet{
 				//System.out.println();
 			}
 		}
-		
-						
-		
+		else{
+			writer.append("<center> INVALID EQUATION!!! </center>");
+		}	
 		// print the table
 		//printTable(temp);
 	  }
