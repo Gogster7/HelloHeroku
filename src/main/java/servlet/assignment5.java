@@ -49,7 +49,7 @@ class EquationVariables {
 		
 }
 
-public class Assignment5 extends HttpServlet{
+public class assignment5 extends HttpServlet{
 	static enum Data {LOGICALOPERATION};
 	
 	// Location of servlet.
