@@ -15,15 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "assignment5", urlPatterns = {"/assignment5"} )
 
-<form method=\"display\" action=\"\\assignment5\">");
-out.println("        <center>");
-out.println("			<select name=“display“>");
-out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
-out.println("			<option value=“T/F”>T/F</option>");
-out.println("			<option value=“t/f”>t/f</option>");
-out.println("			<option value=“X/O”>X/O</option>");
-out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
-out.println("		</select>");
 
 public class assignment5 extends HttpServlet{
 	static enum Data {LOGICALOPERATION, DISPLAY};
@@ -55,7 +46,7 @@ public class assignment5 extends HttpServlet{
 		
 		//get vars
 		String logicalOperation = request.getParameter(Data.LOGICALOPERATION.name()); //"A & B"
-		String displaySelection = request.getParameter(Data.DISPLAY.name()); //"A & B"
+		String displaySelection = request.getParameter(Data.DISPLAY.name()); //"TRUE/FALSE"
 		ArrayList<String> displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
 		
 		//Parse it into a structure that separates boolean variables and logical operators
