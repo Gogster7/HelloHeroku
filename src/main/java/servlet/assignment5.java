@@ -86,7 +86,7 @@ public class assignment5 extends HttpServlet{
 	    	 // check if Final input has error
 	    	 //if (Table[Table.length-1][Table.length-1] == "E") {
 	    	 //	 makeTable = false;
-	    	 }
+	    	 //}
 	     }
 		
 		//remove nulls from arrayEq
