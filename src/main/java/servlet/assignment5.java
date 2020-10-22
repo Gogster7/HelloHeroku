@@ -102,7 +102,7 @@ public class assignment5 extends HttpServlet{
 		// Change Display Feature
 		String t = "1"; // Default setting
 		String f = "0";
-	    	String[][] temp = Table;
+	    String[][] temp = Table;
 	    //if (displayOptions.size() > 0) {
 	    //	t = displayOptions.get(0);
 	    //	f = displayOptions.get(1);
@@ -340,12 +340,12 @@ public class assignment5 extends HttpServlet{
 		out.println("");
 		out.println("    <form method=\"display\" action=\"\\assignment5\">");
 		out.println("        <center>");
-		out.println("			<select name=Â“DISPLAYÂ“>");
-		out.println("		  	<option value=Â“1/0Â” selected=Â“selectedÂ”>1/0</option>");
-		out.println("			<option value=Â“T/FÂ”>T/F</option>");
-		out.println("			<option value=Â“t/fÂ”>t/f</option>");
-		out.println("			<option value=Â“X/OÂ”>X/O</option>");
-		out.println("			<option value=Â“TRUE/FALSEÂ”>TRUE/FALSE</option>");
+		out.println("			<select name=“DISPLAY“>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
@@ -356,6 +356,7 @@ public class assignment5 extends HttpServlet{
 		out.println("            <input type=\"submit\" value=\"Submit\" style=\"background-color: #80ced6\">");
 		out.println("        </center>");
 		out.println("    </form>");
+		out.println("<p><center>Collaboration Summary: All group members worked on different parts of the assignment and brought the pieces together in the end. Sonal worked on fixing up the previous html page used for assignment 3 and recreated the page to fulfill the requirements for the assignment. Angela worked on grabbing the input passed through from the user and using the doGet and doPost methods to manipulate the outcome. George calculated the outcome of the input text and created a table to visualize the results. George also made sure to include error checking to ensure that the user was only entering values that could be evaluated using logical predicates, and then dynamically implemented the truth table. </center></p>");
 		out.println("</body>");
 		out.println("");
 		
@@ -409,12 +410,12 @@ public class assignment5 extends HttpServlet{
 		out.println("");
 		out.println("    <form method=\"display\" action=\"\\assignment5\">");
 		out.println("        <center>");
-		out.println("			<select name=Â“DISPLAYÂ“>");
-		out.println("		  	<option value=Â“1/0Â” selected=Â“selectedÂ”>1/0</option>");
-		out.println("			<option value=Â“T/FÂ”>T/F</option>");
-		out.println("			<option value=Â“t/fÂ”>t/f</option>");
-		out.println("			<option value=Â“X/OÂ”>X/O</option>");
-		out.println("			<option value=Â“TRUE/FALSEÂ”>TRUE/FALSE</option>");
+		out.println("			<select name=“DISPLAY“>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
@@ -425,6 +426,7 @@ public class assignment5 extends HttpServlet{
 		out.println("            <input type=\"submit\" value=\"Submit\" style=\"background-color: #80ced6\">");
 		out.println("        </center>");
 		out.println("    </form>");
+		out.println("<p><center>Collaboration Summary: All group members worked on different parts of the assignment and brought the pieces together in the end. Sonal worked on fixing up the previous html page used for assignment 3 and recreated the page to fulfill the requirements for the assignment. Angela worked on grabbing the input passed through from the user and using the doGet and doPost methods to manipulate the outcome. George calculated the outcome of the input text and created a table to visualize the results. George also made sure to include error checking to ensure that the user was only entering values that could be evaluated using logical predicates, and then dynamically implemented the truth table. </center></p>");
 		
 	}
 	
