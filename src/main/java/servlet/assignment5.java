@@ -17,7 +17,7 @@ import javax.servlet.annotation.WebServlet;
 
 
 public class assignment5 extends HttpServlet{
-	static enum Data {LOGICALOPERATION, DISPLAY};
+	static enum Data {LOGICALOPERATION};
 	
 	// Location of servlet.
 	static String Domain  = "";
@@ -46,8 +46,8 @@ public class assignment5 extends HttpServlet{
 		
 		//get vars
 		String logicalOperation = request.getParameter(Data.LOGICALOPERATION.name()); //"A & B"
-		String displaySelection = request.getParameter(Data.DISPLAY.name()); //"TRUE/FALSE"
-		//ArrayList<String> displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
+		String displaySelection = request.getParameter("DISPLAY"); //"TRUE/FALSE"
+		ArrayList<String> displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
 		
 		//Parse it into a structure that separates boolean variables and logical operators
 		 ArrayList legalOps = new ArrayList(Arrays.asList("&&", "AND", "&","*", "^", "+", "||", "|", "OR", "V", "~", "NOT", "!", "==", "=", "EQUAL"));
@@ -103,10 +103,10 @@ public class assignment5 extends HttpServlet{
 		String t = "1"; // Default setting
 		String f = "0";
 	    String[][] temp = Table;
-	    //if (displayOptions.size() > 0) {
-	    //	t = displayOptions.get(0);
-	    //	f = displayOptions.get(1);
-	    //}
+	    if (displayOptions.size() > 0) {
+	    	t = displayOptions.get(0);
+	    	f = displayOptions.get(1);
+	    }
 
 		changeDisplay(t, f, temp);
 		
@@ -123,7 +123,7 @@ public class assignment5 extends HttpServlet{
 		// Print Table
 		if (makeTable) {
 			writer.append("<center>");
-			writer.append("<table border=2 cellpadding=0 cellspacing=0 width=70%>");
+			writer.append("<table border=2 cellpadding=0 cellspacing=0>");
 			for (int i = 0; i < Table.length; i++) {	
 				writer.append("<tr>");
 				for (int j = 0; j < Table[i].length; j++) {
