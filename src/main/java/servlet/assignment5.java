@@ -17,7 +17,7 @@ import javax.servlet.annotation.WebServlet;
 
 
 public class assignment5 extends HttpServlet{
-	static enum Data {LOGICALOPERATION};
+	static enum Data {LOGICALOPERATION,DISPLAY};
 	
 	// Location of servlet.
 	static String Domain  = "";
@@ -46,7 +46,7 @@ public class assignment5 extends HttpServlet{
 		
 		//get vars
 		String logicalOperation = request.getParameter(Data.LOGICALOPERATION.name()); //"A & B"
-		String displaySelection = request.getParameter("DISPLAY"); //"TRUE/FALSE"
+		String displaySelection = request.getParameter(Data.DISPLAY.name()); //"TRUE/FALSE"
 		ArrayList<String> displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
 		
 		//Parse it into a structure that separates boolean variables and logical operators
@@ -345,14 +345,14 @@ public class assignment5 extends HttpServlet{
 		out.println("    </ul>");
 		out.println("    <br />    <br />    <br />");
 		out.println("");
-		out.println("    <form method=\"display\" action=\"\\assignment5\">");
+		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
 		out.println("			<select name=“DISPLAY“>");
-		out.println("		  	<option>1/0</option>");
-		out.println("			<option>T/F</option>");
-		out.println("			<option>t/f</option>");
-		out.println("			<option>X/O</option>");
-		out.println("			<option>TRUE/FALSE</option>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
@@ -415,14 +415,14 @@ public class assignment5 extends HttpServlet{
 		out.println("    </ul>");
 		out.println("    <br />    <br />    <br />");
 		out.println("");
-		out.println("    <form method=\"display\" action=\"\\assignment5\">");
+		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
 		out.println("			<select name=“DISPLAY“>");
-		out.println("		  	<option>1/0</option>");
-		out.println("			<option>T/F</option>");
-		out.println("			<option>t/f</option>");
-		out.println("			<option>X/O</option>");
-		out.println("			<option>TRUE/FALSE</option>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
