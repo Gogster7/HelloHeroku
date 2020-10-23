@@ -47,8 +47,10 @@ public class assignment5 extends HttpServlet{
 		//get vars
 		String logicalOperation = request.getParameter(Data.LOGICALOPERATION.name()); //"A & B"
 		String displaySelection = request.getParameter("DISPLAY"); //"TRUE/FALSE"
-		ArrayList<String> displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
-		
+		ArrayList displayOptions = new ArrayList();
+		if (displaySelection != null ) {
+			displayOptions = new ArrayList(Arrays.asList(displaySelection.split("/"))); //split by /
+		}
 		//Parse it into a structure that separates boolean variables and logical operators
 		 ArrayList legalOps = new ArrayList(Arrays.asList("&&", "AND", "&","*", "^", "+", "||", "|", "OR", "V", "~", "NOT", "!", "==", "=", "EQUAL"));
 	     ArrayList arrayEq = new ArrayList(Arrays.asList(logicalOperation.split(" "))); //split by space "A & B -> [A,&,B]"
@@ -104,8 +106,8 @@ public class assignment5 extends HttpServlet{
 		String f = "0";
 	    String[][] temp = Table;
 	    if (displayOptions.size() > 0) {
-	    	t = displayOptions.get(0);
-	    	f = displayOptions.get(1);
+	    	t = (String)displayOptions.get(0);
+	    	f = (String)displayOptions.get(1);
 	    }
 
 		changeDisplay(t, f, temp);
@@ -347,12 +349,12 @@ public class assignment5 extends HttpServlet{
 		out.println("");
 		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
-		out.println("			<select name=Â“DISPLAYÂ“>");
-		out.println("		  	<option value=Â“1/0Â” selected=Â“selectedÂ”>1/0</option>");
-		out.println("			<option value=Â“T/FÂ”>T/F</option>");
-		out.println("			<option value=Â“t/fÂ”>t/f</option>");
-		out.println("			<option value=Â“X/OÂ”>X/O</option>");
-		out.println("			<option value=Â“TRUE/FALSEÂ”>TRUE/FALSE</option>");
+		out.println("			<select name=“DISPLAY“>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
@@ -417,12 +419,12 @@ public class assignment5 extends HttpServlet{
 		out.println("");
 		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
-		out.println("			<select name=Â“DISPLAYÂ“>");
-		out.println("		  	<option value=Â“1/0Â” selected=Â“selectedÂ”>1/0</option>");
-		out.println("			<option value=Â“T/FÂ”>T/F</option>");
-		out.println("			<option value=Â“t/fÂ”>t/f</option>");
-		out.println("			<option value=Â“X/OÂ”>X/O</option>");
-		out.println("			<option value=Â“TRUE/FALSEÂ”>TRUE/FALSE</option>");
+		out.println("			<select name=“DISPLAY“>");
+		out.println("		  	<option value=“1/0” selected=“selected”>1/0</option>");
+		out.println("			<option value=“T/F”>T/F</option>");
+		out.println("			<option value=“t/f”>t/f</option>");
+		out.println("			<option value=“X/O”>X/O</option>");
+		out.println("			<option value=“TRUE/FALSE”>TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
 		out.println("	 </form>");
