@@ -119,7 +119,8 @@ public class assignment5 extends HttpServlet{
  		PrintResponseBody(writer);
 		writer.append("<!DOCTYPE html>")
 			.append("<html>")
-			.append("	<center>You typed: " + logicalOperation + "</center>")
+			.append("	<center>Display selected: " + logicalOperation + "</center>")
+			.append("	<center>You typed: " + displaySelection + "</center>")
 			.append("</html>");
 		
 		// Print Table
@@ -357,6 +358,7 @@ public class assignment5 extends HttpServlet{
 		out.println("			<option value=\"TRUE/FALSE\">TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
+		out.println("    <br />");
 		out.println("        <center>");
 		out.println("            <label for=\"logicalOperation\">Enter Logical Operation:</label>");
 		out.println("            <input type=\"text\" id=\"logicalOperation\" name=\"LOGICALOPERATION\"><br><br>");
@@ -425,6 +427,7 @@ public class assignment5 extends HttpServlet{
 		out.println("			<option value=\"TRUE/FALSE\">TRUE/FALSE</option>");
 		out.println("		</select>");
 		out.println("		</center>");
+		out.println("    <br />");
 		out.println("        <center>");
 		out.println("            <label for=\"logicalOperation\">Enter Logical Operation:</label>");
 		out.println("            <input type=\"text\" id=\"logicalOperation\" name=\"LOGICALOPERATION\"><br><br>");
