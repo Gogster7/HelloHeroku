@@ -124,11 +124,14 @@ public class assignment5 extends HttpServlet{
 		if (makeTable) {
 			for (int i = 0; i < Table.length; i++) {
 				writer.append("<center>");
+				writer.append("<style>\r\n");
+				writer.append("table, th, td {\r\n border: 1px solid black;\r\n}\r\n");
 				for (int j = 0; j < Table[i].length; j++) {
-					writer.append(Table[i][j] + "|");
+					writer.append("th, td {\r\n padding: 10px;\r\n }\r\n");  //Table[i][j] + 
 					//System.out.print();
 				}
-				writer.append("</center>");
+				writer.append("</style> </center>");
+				writer.append("<table style=\"width:25%\">");
 				//System.out.println();
 			}
 		}
@@ -136,6 +139,8 @@ public class assignment5 extends HttpServlet{
 			writer.append("<center> INVALID EQUATION!!! </center>");
 		}	
 	  }
+	
+
 
 	/**
 	 * The method that constructs the truth table
