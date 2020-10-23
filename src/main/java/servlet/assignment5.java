@@ -122,16 +122,19 @@ public class assignment5 extends HttpServlet{
 		
 		// Print Table
 		if (makeTable) {
+			writer.append("<center>");
+			writer.append("<table border=2 cellpadding=0 cellspacing=0 width=70%>");
 			for (int i = 0; i < Table.length; i++) {
-				writer.append("<center>");
-				writer.append("<style>\r\n");
-				writer.append("table, th, td {\r\n border: 1px solid black;\r\n}\r\n");
+				
+				//writer.append("<style>\r\n");	
 				for (int j = 0; j < Table[i].length; j++) {
-					writer.append("th, td {\r\n padding: 10px;\r\n }\r\n");  //Table[i][j] + 
+					//writer.append("th, td {\r\n padding: 10px;\r\n }\r\n");  //Table[i][j] + 
+					writer.append("<td>" + Table[i][j] + "</td>");
 					//System.out.print();
 				}
-				writer.append("</style> </center>");
-				writer.append("<table style=\"width:25%\">");
+				writer.append("</tr>");
+				writer.append("</table> </center>");
+				//writer.append("<table style=\"width:25%\">");
 				//System.out.println();
 			}
 		}
