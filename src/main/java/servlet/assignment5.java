@@ -56,7 +56,7 @@ public class assignment5 extends HttpServlet{
 	     ArrayList arrayEq = new ArrayList(Arrays.asList(logicalOperation.split(" "))); //split by space "A & B -> [A,&,B]"
 	     ArrayList arrayOps = new ArrayList();
 	     
-	     ArrayList<EquationVariables> variableArray = new ArrayList<>();
+	     ArrayList<EquationVars> variableArray = new ArrayList<>();
 	 	 ArrayList<Object> equationArray = new ArrayList<>();
 	 	 String[][] Table = null;
 	 	boolean makeTable = true;
@@ -65,10 +65,10 @@ public class assignment5 extends HttpServlet{
 	     for(int i = 0; i< arrayEq.size(); i++){
 	    	 if(!(legalOps.contains(arrayEq.get(i)))){
 	    		 boolean alreadyExists = false; //Keeps track of duplicate variables
-	    		 EquationVariables temp = new EquationVariables((String)arrayEq.get(i),true);
+	    		 EquationVars temp = new EquationVars((String)arrayEq.get(i),true);
 	    		 
 	    		//checks for duplicate variables and doesn't add them to the array twice
-				for (EquationVariables v : variableArray){
+				for (EquationVars v : variableArray){
 					if (v.getName()==temp.getName()){
 						alreadyExists = true;
 						temp = v;
@@ -119,8 +119,8 @@ public class assignment5 extends HttpServlet{
  		PrintResponseBody(writer);
 		writer.append("<!DOCTYPE html>")
 			.append("<html>")
-			.append("	<center>Display selected: " + logicalOperation + "</center>")
-			.append("	<center>You typed: " + displaySelection + "</center>")
+			.append("	<center>Display selected: " + displaySelection + "</center>")
+			.append("	<center>You typed: " + logicalOperation + "</center>")
 			.append("</html>");
 		
 		// Print Table
@@ -130,13 +130,9 @@ public class assignment5 extends HttpServlet{
 			for (int i = 0; i < Table.length; i++) {	
 				writer.append("<tr>");
 				for (int j = 0; j < Table[i].length; j++) {
-					//writer.append("th, td {\r\n padding: 10px;\r\n }\r\n");  //Table[i][j] + 
 					writer.append("<td>" + Table[i][j] + "</td>");
-					//System.out.print();
 				}
 				writer.append("</tr>");
-				//writer.append("<table style=\"width:25%\">");
-				//System.out.println();
 			}
 			writer.append("</table> </center>");
 		}
@@ -152,7 +148,7 @@ public class assignment5 extends HttpServlet{
 	 * It goes through every possible binary combination for the variables, and calls parseEquation()
 	 * for each one. If parseEquation returns false, the program stops executing
 	 */
-	private static String[][] TruthTable(ArrayList<EquationVariables> variables, ArrayList<Object> equation) {
+	private static String[][] TruthTable(ArrayList<EquationVars> variables, ArrayList<Object> equation) {
 		int width = variables.size();
 		int length = (int) Math.pow(2, width);
 		String[][] table = new String[length+1][width+2];
@@ -196,8 +192,8 @@ public class assignment5 extends HttpServlet{
 		String result = "E";
 		// change boolean values to ints
 		for (int j = 0; j < temp.size();j++){
-			if (temp.get(j).getClass().equals(EquationVariables.class)){
-				temp.set(j, ((EquationVariables)temp.get(j)).getState() ? 1 : 0);
+			if (temp.get(j).getClass().equals(EquationVars.class)){
+				temp.set(j, ((EquationVars)temp.get(j)).getState() ? 1 : 0);
 			}
 		}
 		for (int i = 0; i < temp.size(); i++){
@@ -351,7 +347,7 @@ public class assignment5 extends HttpServlet{
 		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
 		out.println("			<select name=\"display\">");
-		out.println("		  	<option value=\"1/0\" selected=Â“selectedÂ”>1/0</option>");
+		out.println("		  	<option value=\"1/0\" selected=“selected”>1/0</option>");
 		out.println("			<option value=\"T/F\">T/F</option>");
 		out.println("			<option value=\"t/f\">t/f</option>");
 		out.println("			<option value=\"X/O\">X/O</option>");
@@ -420,7 +416,7 @@ public class assignment5 extends HttpServlet{
 		out.println("    <form method=\"post\" action=\"\\assignment5\">");
 		out.println("        <center>");
 		out.println("			<select name=\"display\">");
-		out.println("		  	<option value=\"1/0\" selected=Â“selectedÂ”>1/0</option>");
+		out.println("		  	<option value=\"1/0\" selected=“selected”>1/0</option>");
 		out.println("			<option value=\"T/F\">T/F</option>");
 		out.println("			<option value=\"t/f\">t/f</option>");
 		out.println("			<option value=\"X/O\">X/O</option>");
@@ -448,7 +444,7 @@ public class assignment5 extends HttpServlet{
 
 }
 
-class EquationVariables {
+class EquationVars {
 	
 	private boolean state;
 	private String name;
@@ -456,7 +452,7 @@ class EquationVariables {
 	/**
 	 * Stores variables with a name and a binary state (1 or 0)
 	 */
-	public EquationVariables(String theName, boolean theState){
+	public EquationVars(String theName, boolean theState){
 		name = theName;
 		state = theState;
 	}
