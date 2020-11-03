@@ -36,9 +36,7 @@ import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import PersistenceServlet.Data;
-import PersistenceServlet.Entry;
-import PersistenceServlet.EntryManager;
+
 
 // adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
@@ -572,7 +570,7 @@ public class assignment8 extends HttpServlet{
 		out.println("    <form method=\"post\" action=\"\\assignment8\">");
 		out.println("        <center>");
 		out.println("			<select name=\"display\">");
-		out.println("		  	<option value=\"1/0\" selected=“selected”>1/0</option>");
+		out.println("		  	<option value=\"1/0\">1/0</option>");
 		out.println("			<option value=\"T/F\">T/F</option>");
 		out.println("			<option value=\"t/f\">t/f</option>");
 		out.println("			<option value=\"X/O\">X/O</option>");
@@ -650,7 +648,7 @@ public class assignment8 extends HttpServlet{
 		out.println("    <form method=\"post\" action=\"\\assignment8\">");
 		out.println("        <center>");
 		out.println("			<select name=\"display\">");
-		out.println("		  	<option value=\"1/0\" selected=“selected”>1/0</option>");
+		out.println("		  	<option value=\"1/0\">1/0</option>");
 		out.println("			<option value=\"T/F\">T/F</option>");
 		out.println("			<option value=\"t/f\">t/f</option>");
 		out.println("			<option value=\"X/O\">X/O</option>");
