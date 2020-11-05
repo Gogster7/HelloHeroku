@@ -45,7 +45,7 @@ public class assignment8 extends HttpServlet{
 	static String Style ="https://www.cs.gmu.edu/~gterziys/public_html/style.css";
 	static enum Data {LOGICALOPERATION, ENTRY, ENTRIES};
 	
-	static String RESOURCE_FILE = "entries.xml";
+	static String RESOURCE_FILE = "predicates.xml";
 	
 	// Location of servlet.
 	static String Domain  = "";
@@ -197,7 +197,7 @@ public class assignment8 extends HttpServlet{
 
     public String getAllAsHTMLTable(List<Entry> entries){
       StringBuilder htmlOut = new StringBuilder("<table>");
-      htmlOut.append("<tr><th>Predicate</th><th>Table</th></tr>");
+      htmlOut.append("<tr><th>Predicate</th></tr>");
       if(entries == null || entries.size() == 0){
         htmlOut.append("<tr><td>No entries yet.</td></tr>");
       }else{
@@ -313,9 +313,8 @@ public class assignment8 extends HttpServlet{
 	         //printBody(writer, name, rawAge, error);
 	       }else{
 	         printXMLBody(writer, entryManager.getAllAsHTMLTable(newEntries));
+	         PrintTail(writer);
 	       }
-
-	       PrintTail(writer);
 		}
  		else {
  			PrintHead(writer);
