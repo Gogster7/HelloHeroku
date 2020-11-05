@@ -286,6 +286,7 @@ public class assignment8 extends HttpServlet{
 
 		changeDisplay(t, f, temp);
 		String operation = request.getParameter("Operation");
+		if (operation.equals(null)){operation = "";}
 		//Echo the predicate to the user
 		response.setContentType("text/html");
 		PrintWriter writer = response.getWriter();
@@ -596,8 +597,25 @@ public class assignment8 extends HttpServlet{
 	private void printXMLBody (PrintWriter out, String tableString){
 	    out.println("<body>");
 	    out.println("<p>");
-	    out.println("On the left are previous predicates entered, and to the right are their tables");
+	    out.println("On the left are previous predicates entered. You may enter one on the bottom");
 	    out.println("</p>");
+		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assignment8\">");
+		out.println("        <center>");
+		out.println("			<select name=\"display\">");
+		out.println("		  	<option value=\"1/0\">1/0</option>");
+		out.println("			<option value=\"T/F\">T/F</option>");
+		out.println("			<option value=\"t/f\">t/f</option>");
+		out.println("			<option value=\"X/O\">X/O</option>");
+		out.println("			<option value=\"TRUE/FALSE\">TRUE/FALSE</option>");
+		out.println("		</select>");
+		out.println("		</center>");
+		out.println("    <br />");
+		out.println("        <center>");
+		out.println("            <label for=\"logicalOperation\">Enter Logical Operation:</label>");
+		out.println("            <input type=\"text\" id=\"logicalOperation\" name=\"LOGICALOPERATION\"><br><br>");
+		out.println("            <input type=\"submit\" value=\"Submit\" style=\"background-color: #80ced6\">");
+		out.println("        </center>");
+		out.println("    </form>");
 	    out.println("");
 	    out.println(tableString);
 	    out.println("");
