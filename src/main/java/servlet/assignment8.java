@@ -266,7 +266,10 @@ public class assignment8 extends HttpServlet{
 	    	 Table = TruthTable(variableArray, equationArray);
 	    	 // check if Final input has error
 	    	 if (Table[Table.length - 1][Table[Table.length-1].length - 1] == "E") {
-	    		 makeTable = false;makeTable = false;
+	    		 makeTable = false;
+	    	 }
+	    	 if (logicalOperation.length() <= 1 || logicalOperation == null) {
+	    		 makeTable = false;
 	    	 }
 	     }
 	
@@ -303,7 +306,7 @@ public class assignment8 extends HttpServlet{
 	          PrintTail(writer);
 	        }
 		}
- 		else if(logicalOperation != null) {
+ 		else {
  			PrintHead(writer);
  	 		PrintResponseBody(writer);
 			writer.append("<!DOCTYPE html>")
