@@ -128,15 +128,19 @@ public class assignment8 extends HttpServlet{
 
       }
 
-      private void createNode(XMLEventWriter eventWriter, String predicate) throws XMLStreamException {
-        StartElement sElement = eventFactory.createStartElement("", "", predicate);
-        eventWriter.add(LINE_TAB);
-        eventWriter.add(sElement);
+      private void createNode(XMLEventWriter eventWriter, String name,
+              String value) throws XMLStreamException {
+          StartElement sElement = eventFactory.createStartElement("", "", name);
+          eventWriter.add(LINE_TAB);
+          eventWriter.add(sElement);
 
-        EndElement eElement = eventFactory.createEndElement("", "", predicate);
-        eventWriter.add(eElement);
-        eventWriter.add(LINE_END);
-      }
+          Characters characters = eventFactory.createCharacters(value);
+          eventWriter.add(characters);
+
+          EndElement eElement = eventFactory.createEndElement("", "", name);
+          eventWriter.add(eElement);
+          eventWriter.add(LINE_END);
+        }
 
       private List<Entry> getAll(){
         List entries = new ArrayList();
