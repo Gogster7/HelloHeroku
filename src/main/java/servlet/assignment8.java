@@ -197,7 +197,7 @@ public class assignment8 extends HttpServlet{
 
     public String getAllAsHTMLTable(List<Entry> entries){
       StringBuilder htmlOut = new StringBuilder("<table>");
-      htmlOut.append("<tr><th>Predicate</th></tr>");
+      htmlOut.append("<tr><th>Predicates</th></tr>");
       if(entries == null || entries.size() == 0){
         htmlOut.append("<tr><td>No entries yet.</td></tr>");
       }else{
@@ -292,21 +292,6 @@ public class assignment8 extends HttpServlet{
 		PrintWriter writer = response.getWriter();
  		if (operation.equals(OperationXMLfile))
 		{
-		   EntryManager entryManager = new EntryManager();
-	       entryManager.setFilePath(RESOURCE_FILE);
-	       List<Entry> newEntries= null;
-	       try{
-	         newEntries=entryManager.save(logicalOperation);
-	       }catch(FileNotFoundException e){
-	         e.printStackTrace();
-	         //error+= "<li>Could not save entry.</li>";
-	       }
-	       catch(XMLStreamException e){
-	         e.printStackTrace();
-	          //error+= "<li>Could not save entry.</li>";
-	       }
-
-
 	       PrintHead(writer);
 	       if(newEntries ==  null){
 	        // error+= "<li>Could not save entry.</li>";
