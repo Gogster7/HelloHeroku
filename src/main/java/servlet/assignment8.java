@@ -36,6 +36,7 @@ import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
+
 // adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "assignment8", urlPatterns = {"/assignment8"} )
@@ -302,7 +303,7 @@ public class assignment8 extends HttpServlet{
 	          PrintTail(writer);
 	        }
 		}
- 		else {
+ 		else if(logicalOperation != null) {
  			PrintHead(writer);
  	 		PrintResponseBody(writer);
 			writer.append("<!DOCTYPE html>")
