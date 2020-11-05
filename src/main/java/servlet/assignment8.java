@@ -289,8 +289,6 @@ public class assignment8 extends HttpServlet{
 		//Echo the predicate to the user
 		response.setContentType("text/html");
 		PrintWriter writer = response.getWriter();
-		PrintHead(writer);
- 		PrintResponseBody(writer);
  		if (operation.equals(OperationXMLfile))
 		{
 		   EntryManager entryManager = new EntryManager();
@@ -319,29 +317,31 @@ public class assignment8 extends HttpServlet{
 	       PrintTail(writer);
 		}
  		else {
-		writer.append("<!DOCTYPE html>")
-			.append("<html>")
-			.append("	<center>Display selected: " + displaySelection + "</center>")
-			.append("	<center>You typed: " + logicalOperation + "</center>")
-			.append("</html>");
-		
-		// Print Table
-		if (makeTable) {
-			writer.append("<center>");
-			writer.append("<table border=2 cellpadding=0 cellspacing=0>");
-			for (int i = 0; i < Table.length; i++) {	
-				writer.append("<tr>");
-				for (int j = 0; j < Table[i].length; j++) {
-					writer.append("<td>" + Table[i][j] + "</td>");
+ 			PrintHead(writer);
+ 	 		PrintResponseBody(writer);
+			writer.append("<!DOCTYPE html>")
+				.append("<html>")
+				.append("	<center>Display selected: " + displaySelection + "</center>")
+				.append("	<center>You typed: " + logicalOperation + "</center>")
+				.append("</html>");
+			
+			// Print Table
+			if (makeTable) {
+				writer.append("<center>");
+				writer.append("<table border=2 cellpadding=0 cellspacing=0>");
+				for (int i = 0; i < Table.length; i++) {	
+					writer.append("<tr>");
+					for (int j = 0; j < Table[i].length; j++) {
+						writer.append("<td>" + Table[i][j] + "</td>");
+					}
+					writer.append("</tr>");
 				}
-				writer.append("</tr>");
+				writer.append("</table> </center>");
 			}
-			writer.append("</table> </center>");
-		}
-		else{
-			writer.append("<center> INVALID EQUATION!!! </center>");
-		}
-	  }
+			else{
+				writer.append("<center> INVALID EQUATION!!! </center>");
+			}
+ 		}
 	}
 	/**
 	 * The method that constructs the truth table
