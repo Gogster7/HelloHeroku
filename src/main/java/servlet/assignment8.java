@@ -286,7 +286,7 @@ public class assignment8 extends HttpServlet{
 
 		changeDisplay(t, f, temp);
 		String operation = request.getParameter("Operation");
-		if (operation.equals(null)){operation = "";}
+		if (operation == null){operation = "";}
 		//Echo the predicate to the user
 		response.setContentType("text/html");
 		PrintWriter writer = response.getWriter();
@@ -338,6 +338,19 @@ public class assignment8 extends HttpServlet{
 					writer.append("</tr>");
 				}
 				writer.append("</table> </center>");
+			    EntryManager entryManager = new EntryManager();
+		        entryManager.setFilePath(RESOURCE_FILE);
+		        List<Entry> newEntries= null;
+		        try{
+		          newEntries=entryManager.save(logicalOperation);
+		        }catch(FileNotFoundException e){
+		          e.printStackTrace();
+		          //error+= "<li>Could not save entry.</li>";
+		        }
+		        catch(XMLStreamException e){
+		          e.printStackTrace();
+		          //error+= "<li>Could not save entry.</li>";
+		       }
 			}
 			else{
 				writer.append("<center> INVALID EQUATION!!! </center>");
@@ -598,6 +611,8 @@ public class assignment8 extends HttpServlet{
 	    out.println("<body>");
 	    out.println("<p>");
 	    out.println("On the left are previous predicates entered. You may enter one on the bottom");
+	    out.println(tableString);
+	    out.println("");
 	    out.println("</p>");
 		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assignment8\">");
 		out.println("        <center>");
@@ -616,8 +631,6 @@ public class assignment8 extends HttpServlet{
 		out.println("            <input type=\"submit\" value=\"Submit\" style=\"background-color: #80ced6\">");
 		out.println("        </center>");
 		out.println("    </form>");
-	    out.println("");
-	    out.println(tableString);
 	    out.println("");
 	    out.println("</body>");
 	  }
