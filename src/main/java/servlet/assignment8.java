@@ -36,8 +36,6 @@ import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import PersistenceServlet.Entry;
-
 // adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "assignment8", urlPatterns = {"/assignment8"} )
