@@ -36,7 +36,7 @@ import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-
+import PersistenceServlet.Entry;
 
 // adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
@@ -292,14 +292,17 @@ public class assignment8 extends HttpServlet{
 		PrintWriter writer = response.getWriter();
  		if (operation.equals(OperationXMLfile))
 		{
-	       PrintHead(writer);
-	       if(newEntries ==  null){
-	        // error+= "<li>Could not save entry.</li>";
+ 			EntryManager entryManager = new EntryManager();
+	        entryManager.setFilePath(RESOURCE_FILE);
+ 			List<Entry> entries = entryManager.getAll();
+	        PrintHead(writer);
+	        if(entries ==  null){
+	         // error+= "<li>Could not save entry.</li>";
 	         //printBody(writer, name, rawAge, error);
-	       }else{
-	         printXMLBody(writer, entryManager.getAllAsHTMLTable(newEntries));
-	         PrintTail(writer);
-	       }
+	        }else{
+	          printXMLBody(writer, entryManager.getAllAsHTMLTable(entries));
+	          PrintTail(writer);
+	        }
 		}
  		else {
  			PrintHead(writer);
