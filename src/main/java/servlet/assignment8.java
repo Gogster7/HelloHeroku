@@ -333,8 +333,7 @@ public class assignment8 extends HttpServlet{
 		          for (int i = 0; i < logicalOperation.length(); i++) {
 		        	  char charAt = logicalOperation.charAt(i);
 		              if (charAt == '&') {
-		            	  out.append('\\').append(Integer.toHexString(charAt).toUpperCase());
-		                  // out.append(String.format("\\%X", (int) charAt));
+		            	  out.append("&#x26;");
 		              } else {
 		                  out.append(charAt);
 		              }
