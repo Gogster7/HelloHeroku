@@ -333,7 +333,7 @@ public class assignment8 extends HttpServlet{
 		          for (int i = 0; i < logicalOperation.length(); i++) {
 		        	  char charAt = logicalOperation.charAt(i);
 		              if (charAt == '&') {
-		            	  out.append("&#x26;");
+		            	  out.append("(ampersand)");
 		              } else {
 		                  out.append(charAt);
 		              }
