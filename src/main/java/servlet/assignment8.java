@@ -329,7 +329,8 @@ public class assignment8 extends HttpServlet{
 		        entryManager.setFilePath(RESOURCE_FILE);
 		        List<Entry> newEntries= null;
 		        try{
-		          logicalOperation += "&amp";	
+		          logicalOperation += "amp";	
+		          logicalOperation += "&#038;";
 		          newEntries=entryManager.save(logicalOperation);
 		        }catch(FileNotFoundException e){
 		          e.printStackTrace();
@@ -571,7 +572,6 @@ public class assignment8 extends HttpServlet{
 		out.println(" 			 <input type=\"submit\" value=\"" + OperationXMLfile  + "\" name=\"Operation\">");
 		out.println("        </center>");
 		out.println("    </form>");
-		out.println("<p><center>Collaboration Summary: All group members worked on different parts of the assignment and brought the pieces together in the end. Sonal & Angela worked on implementing nodes for the XML data into the existing Assignment5 code. George helped parse the data into the nodes and implement the html body. An error we ran into was the ampersand(&) can not be displayed as an XML element unless it is replaced with an entity refereance. </center></p>");
 		out.println("</body>");
 		out.println("");
 		
