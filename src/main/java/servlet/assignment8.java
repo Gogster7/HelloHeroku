@@ -328,9 +328,18 @@ public class assignment8 extends HttpServlet{
 			    EntryManager entryManager = new EntryManager();
 		        entryManager.setFilePath(RESOURCE_FILE);
 		        List<Entry> newEntries= null;
-		        try{
-		          logicalOperation += "amp";	
-		          logicalOperation += "&#038;";
+		        try{	
+		          StringBuilder out = new StringBuilder(logicalOperation.length());
+		          for (int i = 0; i < logicalOperation.length(); i++) {
+		        	  char charAt = logicalOperation.charAt(i);
+		              if (charAt == '&') {
+		            	  out.append('\\').append(Integer.toHexString(charAt).toUpperCase());
+		                  // out.append(String.format("\\%X", (int) charAt));
+		              } else {
+		                  out.append(charAt);
+		              }
+		          }
+		          logicalOperation = out.toString(); //"&#038;";
 		          newEntries=entryManager.save(logicalOperation);
 		        }catch(FileNotFoundException e){
 		          e.printStackTrace();
