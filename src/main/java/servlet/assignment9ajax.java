@@ -20,7 +20,7 @@ public class assignment9ajax extends HttpServlet{
 	       out.println("<!doctype html>");
 	       out.println("<html lang=\"en-US\">");
 	       out.println("");
-		   out.println("<script type=\"text/javascript\" src=\"https://github.com/Gogster7/HelloHeroku/tree/master/src/main/java/servlet/assignment9Client.js\"></script>");
+		   out.println("<script type=\"text/javascript\" src=\"https://gterziyshello.herokuapp.com/assignment9Client.js\"></script>");
 		   out.println("<script>");
 		   out.println(" function setFocus()");
 		   out.println(" {");
