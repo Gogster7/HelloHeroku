@@ -58,7 +58,7 @@ public class assignment9ajax extends HttpServlet{
 		   out.println("    <form method=\"post\" action=\"\\assignment88\" name=\"tableForm\">");
 		   out.println("        <center>");
 		   out.println("			<select name=\"display\">");
-		   out.println("		  	<option value=\"1/0\" selected=“selected”>1/0</option>");
+		   out.println("		  	<option value=\"1/0\" selected=\"selected\">1/0</option>");
 		   out.println("			<option value=\"T/F\">T/F</option>");
 		   out.println("			<option value=\"t/f\">t/f</option>");
 		   out.println("			<option value=\"X/O\">X/O</option>");

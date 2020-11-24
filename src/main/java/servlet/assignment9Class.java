@@ -91,7 +91,7 @@ public class assignment9Class extends HttpServlet {
 				  //PrintResponseBody(writer);
 			      
 				  writer.append("	<center>Display selected: " + displaySelection + "</center>")
-						.append("	<center>You typed: " + logicalOperation + "</center>")
+						.append("	<center>You typed: " + logicalOperation + "</center>");
 				 
 
 				  //writer.print(displaySelection);
