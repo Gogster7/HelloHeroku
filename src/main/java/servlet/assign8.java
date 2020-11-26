@@ -448,7 +448,7 @@ public class assign8 extends HttpServlet{
 		out.println("            <label for=\"logicalOperation\">Enter Logical Operation:</label>");
 		out.println("            <input type=\"text\" id=\"logicalOperation\" name=\"LOGICALOPERATION\"><br><br>");
 		out.println("            <input type=\"submit\" value=\"Submit\" style=\"background-color: #80ced6\">");
-		out.println(" 			 <input type=\"submit\" value=\"" + OperationXMLfile  + "\" name=\"Operation\">");
+		//out.println(" 			 <input type=\"submit\" value=\"" + OperationXMLfile  + "\" name=\"Operation\">");
 		out.println("        </center>");
 		out.println("    </form>");
 		out.println("</body>");
