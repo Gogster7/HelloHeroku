@@ -562,7 +562,7 @@ public class assign8a extends HttpServlet{
 		out.println("    </ul>");
 		out.println("    <br />    <br />    <br />");
 		out.println("");
-		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assignment8\">");
+		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assign8\">");
 		out.println("        <center>");
 		out.println("			<select name=\"display\">");
 		out.println("		  	<option value=\"1/0\">1/0</option>");
@@ -611,7 +611,7 @@ public class assign8a extends HttpServlet{
 	    out.println(tableString);
 	    out.println("");
 	    out.println("</p>");
-		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assignment8\">");
+		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assign8\">");
 		out.println("        <center>");
 		out.println("			<select name=\"display\">");
 		out.println("		  	<option value=\"1/0\">1/0</option>");
@@ -657,7 +657,7 @@ public class assign8a extends HttpServlet{
 		out.println("    </ul>");
 		out.println("    <br />    <br />    <br />");
 		out.println("");
-		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assignment8\">");
+		out.println("    <form name=\"persist2file\" method=\"post\" action=\"\\assign8\">");
 		out.println("        <center>");
 		out.println("			<select name=\"display\">");
 		out.println("		  	<option value=\"1/0\">1/0</option>");
