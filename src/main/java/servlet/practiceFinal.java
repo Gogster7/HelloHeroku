@@ -136,9 +136,10 @@ public class practiceFinal extends HttpServlet{
 	out.println("  </tr>");
 	out.println("  <tr>");
 	out.println("  </tr>");
+	out.println(" <br>");
 	out.println("  <tr>");
 	out.println("   <td>Result:");
-	out.println("   <td><input type=\"text\" name=\"Result\" value=\"" + result + "\" size=6>");
+	out.println("   <td><input type=\"text\" name=\"Result\" value=\"" + result + "\" readonly=\"readonly\">");
 	out.println("  </tr>");
 	out.println(" </table>");
 	out.println(" <br>");
@@ -149,6 +150,7 @@ public class practiceFinal extends HttpServlet{
 	out.println(" <input type=\"submit\" value=\"" + BCA + "\" name=\"Operation\">");
 	out.println(" <input type=\"submit\" value=\"" + CAB + "\" name=\"Operation\">");
 	out.println(" <input type=\"submit\" value=\"" + CBA + "\" name=\"Operation\">");
+	out.println(" <br>");
 	out.println(" <br>");
 	out.println(" <input type=\"submit\" value=\"" + Reverse + "\" name=\"Operation\" style=\"background-color: #3FD5A1\">");
 	out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\" style=\"background-color: #3FD5A1\">");
