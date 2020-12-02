@@ -156,7 +156,6 @@ public class practiceFinal extends HttpServlet{
 	out.println(" <input type=\"submit\" value=\"" + Reverse + "\" name=\"Operation\" style=\"background-color: #3FD5A1\">");
 	out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\" style=\"background-color: #3FD5A1\">");
 	out.println(" <br>");
-	out.println(" <br>");
 	out.println("<p>SEPARATOR:</p>");
 	out.println("<select name=\"separator\">");
 	out.println("<option value=\"\" selected=\"selected\"></option>");
@@ -165,6 +164,7 @@ public class practiceFinal extends HttpServlet{
 	out.println("<option value=\"~\">~</option>");
 	out.println("<option value=\"|\">|</option>");
 	out.println("<option value=\"-\">-</option>");
+	out.println("<option value=\"+\">+</option>");
 	out.println("</select>");
 	out.println("<center>");
 	out.println("</form>");
