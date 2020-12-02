@@ -45,25 +45,26 @@ public class practiceFinal extends HttpServlet{
 		String firstStr = request.getParameter("First");
 		String secondStr = request.getParameter("Second");
 		String thirdStr = request.getParameter("Third");
+		String sep = request.getParameter("separator");
 
 		switch(operation) {
 		   case "A->B->C" :
-			   result = firstStr + secondStr + thirdStr;
+			   result = firstStr + sep + secondStr + sep + thirdStr;
 		      break;
 		   case "A->C->B" :
-			  result = firstStr + thirdStr + secondStr;
+			  result = firstStr + sep + thirdStr + sep + secondStr;
 		      break; 
 		   case "B->A->C" :
-			  result = secondStr + firstStr + thirdStr;
+			  result = secondStr + sep + firstStr + sep + thirdStr;
 		      break; 
 		   case "B->C->A" :
-			  result = secondStr + thirdStr + firstStr;
+			  result = secondStr + sep + thirdStr + sep + firstStr;
 		      break;
 		   case "C->A->B" :
-			  result = thirdStr + firstStr + secondStr;
+			  result = thirdStr + sep + firstStr + sep + secondStr;
 		      break; 
 		   case "C->B->A" :
-			  result = thirdStr + secondStr + firstStr;
+			  result = thirdStr + sep + secondStr + sep + firstStr;
 		      break; 
 		   case "REVERSE" :
 			   firstStr = reverse(firstStr);
@@ -117,7 +118,7 @@ public class practiceFinal extends HttpServlet{
 	{
 	out.println("<body>");
 	out.println("<h1><center>Triple String Concatenation</center></h1>");
-	out.println("<p>");
+	//out.println("<p>");
 	out.print  ("<form method=\"post\" action=\"/" + Servlet + "\">");
 	out.println("<center>");
 	out.println("");
@@ -154,6 +155,17 @@ public class practiceFinal extends HttpServlet{
 	out.println(" <br>");
 	out.println(" <input type=\"submit\" value=\"" + Reverse + "\" name=\"Operation\" style=\"background-color: #3FD5A1\">");
 	out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\" style=\"background-color: #3FD5A1\">");
+	out.println(" <br>");
+	out.println(" <br>");
+	out.println("<p>SEPARATOR:</p>");
+	out.println("<select name=\"separator\">");
+	out.println("<option value=\"\" selected=\"selected\"></option>");
+	out.println("<option value=\"$\">$</option>");
+	out.println("<option value=\"*\">*</option>");
+	out.println("<option value=\"~\">~</option>");
+	out.println("<option value=\"|\">|</option>");
+	out.println("<option value=\"-\">-</option>");
+	out.println("</select>");
 	out.println("<center>");
 	out.println("</form>");
 	out.println("");
@@ -161,7 +173,7 @@ public class practiceFinal extends HttpServlet{
 	} // End PrintBody
 
 	/** *****************************************************
-	*  Overloads PrintBody (out,lhs,rhs,result) to print a page
+	*  Overloads PrintBody (out,first,second,third,result) to print a page
 	*  with blanks in the form fields.
 	********************************************************* */
 	private void PrintBody (PrintWriter out)
