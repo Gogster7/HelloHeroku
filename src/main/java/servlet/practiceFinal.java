@@ -47,7 +47,7 @@ public class practiceFinal {
 		String thirdStr = request.getParameter("Third");
 
 		switch(operation) {
-		   case ABC :
+		   case "A->B->C" :
 			   result = firstStr + secondStr + thirdStr;
 		      break;
 		   case ACB :
