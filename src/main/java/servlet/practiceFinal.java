@@ -18,7 +18,7 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "practiceFinal", urlPatterns = {"/practiceFinal"} )
 
 
-public class practiceFinal {
+public class practiceFinal extends HttpServlet{
 	//Location of servlet
 	static String Domain  = "";
 	static String Path    = "";
@@ -26,11 +26,11 @@ public class practiceFinal {
 	
 	//Button labels
 	static String ABC = "A->B->C";
-	static String ACB = "A->B->C";
-	static String BAC = "A->B->C";
-	static String BCA = "A->B->C";
-	static String CAB = "A->B->C";
-	static String CBA = "A->B->C";
+	static String ACB = "A->C->B";
+	static String BAC = "B->A->C";
+	static String BCA = "B->C->A";
+	static String CAB = "C->A->B";
+	static String CBA = "C->B->A";
 	
 	static String Reverse = "REVERSE";
 	
@@ -50,7 +50,7 @@ public class practiceFinal {
 		   case "A->B->C" :
 			   result = firstStr + secondStr + thirdStr;
 		      break;
-		   case ACB :
+		   case "A->C->B" :
 			  result = firstStr + thirdStr + secondStr;
 		      break; 
 		   case BAC :
