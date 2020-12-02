@@ -53,19 +53,19 @@ public class practiceFinal extends HttpServlet{
 		   case "A->C->B" :
 			  result = firstStr + thirdStr + secondStr;
 		      break; 
-		   case BAC :
+		   case "B->A->C" :
 			  result = secondStr + firstStr + thirdStr;
 		      break; 
-		   case BCA :
+		   case "B->C->A" :
 			  result = secondStr + thirdStr + firstStr;
 		      break;
-		   case CAB :
+		   case "C->A->B" :
 			  result = thirdStr + firstStr + secondStr;
 		      break; 
-		   case CBA :
+		   case "C->B->A" :
 			  result = thirdStr + secondStr + firstStr;
 		      break; 
-		   case Reverse :
+		   case "REVERSE" :
 			   firstStr = reverse(firstStr);
 			   secondStr = reverse(secondStr);
 			   thirdStr = reverse(thirdStr);
