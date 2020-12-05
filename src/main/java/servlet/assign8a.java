@@ -600,7 +600,7 @@ public class assign8a extends HttpServlet{
 	private void PrintTail (PrintWriter out)
 	{
 	   out.println("");
-	   out.println("<p><center>Collaboration Summary: All group members worked on different parts of the assignment and brought the pieces together in the end. Sonal & Angela worked on implementing nodes for the XML data into the existing Assignment5 code. George helped parse the data into the nodes and implement the html body. An error we ran into was the ampersand(&) can not be displayed as an XML element unless it is replaced with an entity refereance. </center></p>");
+	   out.println("<p><center>Collaboration Summary: For this assignment we initially wanted to complete it using AJAX and Sonal took care of the doGet method with the Html, Angela handled the processRequest method the would do the table logic, and George did the Client.js file that registers the handler function that would be called when the server reterns the callback function. We ran into a couple issues with that and George attended an office hours for help. There seemed to be other bugs when launching the program so we decided to go with the forwarding method. Each member analyzed our previous assignment5 and decided where the dispathcer method would go. We placed it in the doPost method of the first servlet inorder to forward the control to the second servlet that computes and prints the truth table.\r\n" + "</center></p>");
 	   out.println("</html>");
 	} // End PrintTail
 	
