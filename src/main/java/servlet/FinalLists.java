@@ -50,6 +50,7 @@ public class FinalLists extends HttpServlet{
 			}
 			list.add(n);
 		}
+		list.add(direction);
 		// Sorting Order Selection
 		switch(sortOrder) {
 		   case "String Order" :
@@ -57,16 +58,17 @@ public class FinalLists extends HttpServlet{
 			   result = toList(list);
 			   break; 
 		   case "Length" :
-			   Collections.sort(list, new Comparator<String>() {
-				    @Override
-				    public int compare(String o1, String o2) {
-				        return o2.length() - o1.length();
-				    }
-			   });
+			  Collections.sort(list, new Comparator<String>() {
+				   @Override
+				   public int compare(String o1, String o2) {
+				       return o2.length() - o1.length();
+				   }
+			  });
+			  Collections.reverse(list);
 			  result = toList(list);
 		      break; 
 		   case "Vowels" :
-			  
+			  list = sortVowels(list);
 			  result = toList(list);
 		      break;
 		   case "Consonants" :
@@ -94,6 +96,59 @@ public class FinalLists extends HttpServlet{
 		PrintTail(out);
 	}
 	
+	public class pair
+	{
+	    int first;
+	    String second;
+	     
+	    pair(int first,String second)
+	    {
+	        this.first = first;
+	        this.second = second;
+	    }
+	}
+	
+	// Sort list related to number of vowels in a String
+	public ArrayList<String> sortVowels(ArrayList<String> list) {
+		// Vector to store the number of vowels per String
+	    ArrayList<pair> vp = new ArrayList<>();
+	    for(int i = 0; i < list.size(); i++){
+	    	String str = list.get(i);
+	    	vp.add(new pair(countVowels(str),str));
+	    }
+	    Collections.sort(vp, (a, b) -> a.first - b.first);
+	    for(int i = 0; i < vp.size(); i++) {
+	        list.add(i,vp.get(i).second);
+	    }
+		return list;
+	}
+	
+	// Sort list related to number of consonants in a String 
+	public String sortConsonants(ArrayList<String> list) {
+		String result = "";
+		return result;
+	}
+	
+	// Function to check the Vowel
+	public boolean isVowel(char ch)
+	{
+	    ch = Character.toUpperCase(ch);
+	    return (ch == 'A' || ch == 'E' || 
+	            ch == 'I' || ch == 'O' ||
+	            ch == 'U');
+	}
+	
+	// Returns count of vowels in string
+	public int countVowels(String str)
+	{
+	    int count = 0;
+	    for(int i = 0; i < str.length(); i++)	     
+	        // Check for vowel
+	        if (isVowel(str.charAt(i))) 
+	            ++count;	             
+	    return count;
+	}
+	
 	// Sort list related to length of string 
 	public String sortLength(ArrayList<String> list) {
 		String result = "";
@@ -107,17 +162,6 @@ public class FinalLists extends HttpServlet{
 			result += list.get(i) + "\n";
 		}
 		return result;
-	}
-	
-	public String reverse(String input) {
-	    if (input == null) {
-	        return input;
-	    }
-	    String output = "";
-	    for (int i = input.length() - 1; i >= 0; i--) {
-	        output = output + input.charAt(i);
-	    }
-	    return output;
 	}
 	
 	@Override
@@ -152,10 +196,10 @@ public class FinalLists extends HttpServlet{
 	out.println("<center>");
 	out.println("");
 	//
+	out.println("<hr>");
 	out.println("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"70%\" align=\"center\">");
 	out.println("<tr>");
 	out.println("  <td width=\"90%\" colspan=\"8\">");
-	out.println("    <hr>");
 	out.println("  </td>");
 	out.println("</tr>");
 	out.println("<tr>");
@@ -182,7 +226,7 @@ public class FinalLists extends HttpServlet{
 	out.println("" + result +"");
 	out.println("</textarea>");
 	out.println("  </td>");
-	out.println("  <td bgcolor=\"#CAB9B9\" width=\"20%\" colspan=\"2\" align=\"center\">");
+	out.println("  <td bgcolor=\"#CDD7E1\" width=\"20%\" colspan=\"2\" align=\"center\">");
 	out.println("    <table border=\"0\">");
 	out.println("      <tr>");
 	out.println("        <td>");
