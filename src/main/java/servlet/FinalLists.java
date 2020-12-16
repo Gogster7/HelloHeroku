@@ -79,7 +79,7 @@ public class FinalLists extends HttpServlet{
 		// Ascending | Descending 
 		if (direction.equals("Descending")) {
 			Collections.reverse(list);
-			request.getElementById("Descending").checked = true;
+			//request.getElementById("Descending").checked = true;
 		}
 		// Reset
 		if (operation.contentEquals(Reset)) {
@@ -96,7 +96,7 @@ public class FinalLists extends HttpServlet{
 	
 	// Sort list related to length of string 
 	public String sortLength(ArrayList<String> list) {
-
+		String result = "";
 		return result;
 	}
 	
