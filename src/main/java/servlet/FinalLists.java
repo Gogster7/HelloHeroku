@@ -117,7 +117,7 @@ public class FinalLists extends HttpServlet{
 	    for(int i = 0; i < vp.size(); i++) {
 	        temp.add(vp.get(i).second);
 	    }
-		return list;
+		return temp;
 	}
 	
 	// Sort list related to number of consonants in a String 
@@ -133,7 +133,7 @@ public class FinalLists extends HttpServlet{
 	    for(int i = 0; i < cp.size(); i++) {
 	        temp.add(cp.get(i).second);
 	    }
-		return list;
+		return temp;
 	}
 	
 	// Function to check the Vowel
