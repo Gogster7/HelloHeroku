@@ -24,7 +24,7 @@ public class FinalLists extends HttpServlet{
 	static String Servlet = "FinalLists";
 	
 	//Button labels
-
+	static String Reset = "Reset";
 	static String Sort = "SORT";
 	// Style
 	static String Style ="https://www.cs.gmu.edu/~gterziys/public_html/style.css";
@@ -33,46 +33,72 @@ public class FinalLists extends HttpServlet{
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		String result = "";
+		String[] list;
+		String result;
+		String entered = request.getParameter("listEnter");
 		String operation = request.getParameter("Operation");
-		String firstStr = request.getParameter("First");
-		String secondStr = request.getParameter("Second");
-		String thirdStr = request.getParameter("Third");
-		String sep = request.getParameter("separator");
+		String direction = request.getParameter("orderOption");
+		String sortOrder = request.getParameter("sorter");
+		
+		// create array from entered string
+		Scanner sc = new Scanner(entered);
+		int i = 0;
+		while(sc.hasNext()) {
+			list[i] = sc.next();
+			i++;
+		}
 
-		switch(operation) {
-		   case "A->B->C" :
-			   result = firstStr + sep + secondStr + sep + thirdStr;
+		switch(sortOrder) {
+		   case "Numbers First" :
+			  
+			  result = toList(list);
 		      break;
-		   case "A->C->B" :
-			  result = firstStr + sep + thirdStr + sep + secondStr;
+		   case "Strings First" :
+
 		      break; 
-		   case "B->A->C" :
-			  result = secondStr + sep + firstStr + sep + thirdStr;
+		   case "String Order" :
+			   list = stringSort(list, direction);
+			   result = toList(list);
+			   break; 
+		   case "Length" :
+			  
+			  result = toList(list);
 		      break; 
-		   case "B->C->A" :
-			  result = secondStr + sep + thirdStr + sep + firstStr;
+		   case "Vowels" :
+			  
+			  result = toList(list);
 		      break;
-		   case "C->A->B" :
-			  result = thirdStr + sep + firstStr + sep + secondStr;
+		   case "Consonants" :
+			  
+			  result = toList(list);
 		      break; 
-		   case "C->B->A" :
-			  result = thirdStr + sep + secondStr + sep + firstStr;
-		      break; 
-		   case "REVERSE" :
-			   firstStr = reverse(firstStr);
-			   secondStr = reverse(secondStr);
-			   thirdStr = reverse(thirdStr);
-			   break;	   
+		   default :
+			   result = request.getParameter("listEnter");   
+		}
+		// Reset
+		if (operation.contentEquals(Reset)) {
+			entered = "";
+			result = "";
 		}
 		
-		result = request.getParameter("strEnter");
-
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		PrintHead(out);
-		PrintBody(out, firstStr, secondStr, thirdStr, result);
+		PrintBody(out, entered, result);
 		PrintTail(out);
+	}
+	
+	public String[] stringSort(String[] list, String direction) {
+		Arrays.parallelSort(list);
+		return list;
+	}
+	// Turn list array to String
+	public String toList(String[] list) {
+		String result = "";
+		for (int i = 0; i < list.length;i++) {
+			result += list[i] + "\n";
+		}
+		return result;
 	}
 	
 	public String reverse(String input) {
@@ -109,7 +135,7 @@ public class FinalLists extends HttpServlet{
 	out.println("");
 	} // End PrintHead
 	
-	private void PrintBody (PrintWriter out, String first, String second, String third, String result)
+	private void PrintBody (PrintWriter out, String entered, String result)
 	{
 	out.println("<body>");
 	out.println("<h1><center>Supreme List Sorter</center></h1>");
@@ -125,26 +151,27 @@ public class FinalLists extends HttpServlet{
 	out.println("  </td>");
 	out.println("</tr>");
 	out.println("<tr>");
-	out.println("  <td bgcolor=\"#CCFFFF\" align=\"center\" width=\"35%\" colspan=\"2\"><b> Enter Strings or Numbers as a List </b></br>");
+	out.println("  <td bgcolor=\"#84D47C\" align=\"center\" width=\"35%\" colspan=\"2\"><b> Enter Strings or Numbers as a List </b></br>");
 	out.println("    <i>*UNIQUE: duplicates will be discarded from result.</i>");
 	out.println("  </td>");
-	out.println("  <td bgcolor=\"#EEEEEE\" align=\"center\" width=\"35%\" colspan=\"2\"><b>Alternative Sort Options:</b></br>");
+	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>Alternative Sort Options:</b></br>");
 	out.println("    <i>1 & 2:Alphabetical and Numerical ordering\n</i>");
-	out.println("    <i>Length:String Length\n</i>");
-	out.println("    <i>Vowels: Number of vowels\n</i>");
-	out.println("    <i>Consonants:Number of those\n</i>");
+	out.println("    <i>Length:String Length</i></br>");
+	out.println("    <i>Vowels: Number of vowels</i></br>");
+	out.println("    <i>Consonants:Number of those</i></br>");
 	out.println("  </td>");
 	out.println("");
 	//71out.println("  <td width=\"2%\" colspan=\"1\">&nbsp;&nbsp;</td>");
 	out.println("</tr>");
 	out.println("<tr>");
-	out.println("  <td bgcolor=\"#CCFFFF\" align=\"center\" width=\"35%\" colspan=\"2\">");
-	out.println("    <textarea rows=\"20\" name=\"strEnter\" id=\"strEnter\" cols=\"25\" autofocus=true>");
+	out.println("  <td bgcolor=\"#84D47C\" align=\"center\" width=\"35%\" colspan=\"2\">");
+	out.println("    <textarea rows=\"20\" name=\"listEnter\" id=\"listEnter\" cols=\"25\" autofocus=true>");
+	out.println("" + entered +"");
 	out.println("</textarea>");
 	out.println("  </td>");
 	//out.println("  <td width=\"2%\" colspan=\"1\">&nbsp;&nbsp;</td>");
-	out.println("  <td bgcolor=\"#EEEEEE\" align=\"center\" width=\"35%\" colspan=\"2\">");
-	out.println("    <textarea rows=\"20\" name=\"strChosen\" id=\"strChosen\" cols=\"25\" readonly=\"readonly\" >");
+	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\">");
+	out.println("    <textarea rows=\"20\" name=\"listChosen\" id=\"listChosen\" cols=\"25\" readonly=\"readonly\" >");
 	out.println("" + result +"");
 	out.println("</textarea>");
 	out.println("  </td>");
@@ -163,7 +190,7 @@ public class FinalLists extends HttpServlet{
 	out.println("      </tr>");
 	out.println("      <tr cellpadding=\"2\">");
 	out.println("        <td align=\"center\">");
-	out.println("          <input type=\"submit\" value=\""+Sort+"\" name=\"Operation\" style=\"background-color: #3FD5A1\">");
+	out.println("          <input type=\"submit\" value=\""+Sort+"\" name=\"Operation\" style=\"background-color: #20A1A1\">");
 	out.println("        </td>");
 	out.println("      </tr>");
 	out.println("      <tr cellpadding=\"2\">");
@@ -171,7 +198,7 @@ public class FinalLists extends HttpServlet{
 	out.println("      </tr>");
 	out.println("      <tr>");
 	out.println("        <td align=\"center\">");
-	out.println(" 			<input type=\"reset\" value=\"Reset\" name=\"btn\" style=\"background-color: #3FD5A1\">");
+	out.println(" 			<input type=\"submit\" value=\""+Reset+"\" name=\"Operation\" style=\"background-color: #20A1A1\">");
 	out.println("        </td>");
 	out.println("      </tr>");
 	out.println("      <tr cellpadding=\"2\">");
@@ -180,7 +207,7 @@ public class FinalLists extends HttpServlet{
 	out.println("      <tr>");
 	out.println("        <td align=\"center\">");
 	out.println("          <p>SORT OPTIONS:</p>");
-	out.println("          <select name=\"separator\">");
+	out.println("          <select name=\"sorter\">");
 	out.println("          <option value=\"AS ENTERED\" selected=\"selected\">AS ENTERED</option>");
 	out.println("          <option value=\"Numbers First\">Numbers First</option>");
 	out.println("          <option value=\"Strings First\">Strings First</option>");
@@ -206,7 +233,7 @@ public class FinalLists extends HttpServlet{
 	********************************************************* */
 	private void PrintBody (PrintWriter out)
 	{
-	PrintBody(out, "", "", "", "");
+	PrintBody(out, "", "");
 	}
 
 	/** *****************************************************
