@@ -57,7 +57,12 @@ public class FinalLists extends HttpServlet{
 			   result = toList(list);
 			   break; 
 		   case "Length" :
-			  
+			   Collections.sort(list, new Comparator<String>() {
+				    @Override
+				    public int compare(String o1, String o2) {
+				        return o2.length() - o1.length();
+				    }
+			   });
 			  result = toList(list);
 		      break; 
 		   case "Vowels" :
@@ -72,8 +77,9 @@ public class FinalLists extends HttpServlet{
 			   result = toList(list);   
 		}
 		// Ascending | Descending 
-		if (direction.equals("D")) {
+		if (direction.equals("Descending")) {
 			Collections.reverse(list);
+			request.getElementById("Descending").checked = true;
 		}
 		// Reset
 		if (operation.contentEquals(Reset)) {
@@ -86,6 +92,12 @@ public class FinalLists extends HttpServlet{
 		PrintHead(out);
 		PrintBody(out, entered, result);
 		PrintTail(out);
+	}
+	
+	// Sort list related to length of string 
+	public String sortLength(ArrayList<String> list) {
+
+		return result;
 	}
 	
 	// Turn list array to String
@@ -140,8 +152,7 @@ public class FinalLists extends HttpServlet{
 	out.println("<center>");
 	out.println("");
 	//
-	//out.println("<table border=\"0\" cellpadding=\"2\" cellspacing=\"1\" width=\"70%\" align=\"center\">");
-	out.println("<table border=\"0\"  width=\"70%\" align=\"center\">");
+	out.println("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"70%\" align=\"center\">");
 	out.println("<tr>");
 	out.println("  <td width=\"90%\" colspan=\"8\">");
 	out.println("    <hr>");
@@ -166,23 +177,21 @@ public class FinalLists extends HttpServlet{
 	out.println("" + entered +"");
 	out.println("</textarea>");
 	out.println("  </td>");
-	//out.println("  <td width=\"2%\" colspan=\"1\">&nbsp;&nbsp;</td>");
 	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\">");
 	out.println("    <textarea rows=\"20\" name=\"listChosen\" id=\"listChosen\" cols=\"25\" readonly=\"readonly\" >");
 	out.println("" + result +"");
 	out.println("</textarea>");
 	out.println("  </td>");
-	//out.println("  <td width=\"2%\" colspan=\"1\">&nbsp;&nbsp;</td>");
-	out.println("  <td bgcolor=\"#F58080\" width=\"20%\" colspan=\"2\" align=\"center\">");
+	out.println("  <td bgcolor=\"#CAB9B9\" width=\"20%\" colspan=\"2\" align=\"center\">");
 	out.println("    <table border=\"0\">");
 	out.println("      <tr>");
 	out.println("        <td>");
-	out.println("          <label><input checked type=\"radio\" value=\"A\" id = \"orderOption\" name=\"orderOption\">Ascending</label>");
+	out.println("          <label><input checked type=\"radio\" value=\"Ascending\" id = \"orderOption\" name=\"orderOption\">Ascending</label>");
 	out.println("        </td>");
 	out.println("      </tr>");
 	out.println("      <tr>");
 	out.println("        <td>");
-	out.println("          <label><input type=\"radio\" value=\"D\" id = \"orderOption\" name=\"orderOption\">Descending</label>");
+	out.println("          <label><input type=\"radio\" value=\"Descending\" id = \"orderOption\" name=\"orderOption\">Descending</label>");
 	out.println("        </td>");
 	out.println("      </tr>");
 	out.println("      <tr cellpadding=\"2\">");
@@ -216,8 +225,8 @@ public class FinalLists extends HttpServlet{
 	out.println("    </table>");
 	out.println("  </td>");
 	out.println("</tr>");
-	out.println("<hr>");
 	out.println("</table>");
+	out.println("<hr>");
 	out.println("</form>");
 	out.println("</body>");
 	out.println("");
