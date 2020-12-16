@@ -48,8 +48,8 @@ public class FinalLists extends HttpServlet{
 			if (list.contains(n)) {
 				continue;
 			}
+			list.add(n);
 		}
-		list.add(direction);
 		// Sorting Order Selection
 		switch(sortOrder) {
 		   case "String Order" :
@@ -210,7 +210,7 @@ public class FinalLists extends HttpServlet{
 	out.println("</tr>");
 	out.println("<tr>");
 	out.println("  <td bgcolor=\"#84D47C\" align=\"center\" width=\"35%\" colspan=\"2\"><b> Enter Strings or Numbers as a List </b></br>");
-	out.println("    <i>*UNIQUE: duplicates will be discarded from result</i>");
+	out.println("    <i>*UNIQUE: duplicates will be discarded from result</i></br>");
 	out.println("    <i>Place each string on a new line.</i>");
 	out.println("  </td>");
 	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>*Alternative Sort Options:</b></br>");
