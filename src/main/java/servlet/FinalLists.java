@@ -64,10 +64,10 @@ public class FinalLists extends HttpServlet{
 			  Collections.reverse(list);
 		      break; 
 		   case "Vowels" :
-			  sortVowels(list);
+			  list = sortVowels(list);
 		      break;
 		   case "Consonants" :
-			  sortConsonants(list);
+			  list = sortConsonants(list);
 		      break; 
 		   default :
 			   result = toList(list);   
