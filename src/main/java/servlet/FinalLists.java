@@ -48,14 +48,12 @@ public class FinalLists extends HttpServlet{
 			if (list.contains(n)) {
 				continue;
 			}
-			list.add(n);
 		}
 		list.add(direction);
 		// Sorting Order Selection
 		switch(sortOrder) {
 		   case "String Order" :
 			   Collections.sort(list);
-			   result = toList(list);
 			   break; 
 		   case "Length" :
 			  Collections.sort(list, new Comparator<String>() {
@@ -65,15 +63,12 @@ public class FinalLists extends HttpServlet{
 				   }
 			  });
 			  Collections.reverse(list);
-			  result = toList(list);
 		      break; 
 		   case "Vowels" :
-			  list = sortVowels(list);
-			  result = toList(list);
+			  sortVowels(list);
 		      break;
 		   case "Consonants" :
-			  
-			  result = toList(list);
+			  sortConsonants(list);
 		      break; 
 		   default :
 			   result = toList(list);   
@@ -83,6 +78,8 @@ public class FinalLists extends HttpServlet{
 			Collections.reverse(list);
 			//request.getElementById("Descending").checked = true;
 		}
+		// switch to string
+		result = toList(list); 
 		// Reset
 		if (operation.contentEquals(Reset)) {
 			entered = "";
@@ -124,9 +121,18 @@ public class FinalLists extends HttpServlet{
 	}
 	
 	// Sort list related to number of consonants in a String 
-	public String sortConsonants(ArrayList<String> list) {
-		String result = "";
-		return result;
+	public ArrayList<String> sortConsonants(ArrayList<String> list) {
+		// Vector to store the number of vowels per String
+	    ArrayList<pair> cp = new ArrayList<>();
+	    for(int i = 0; i < list.size(); i++){
+	    	String str = list.get(i);
+	    	cp.add(new pair((str.length()-countVowels(str)),str));
+	    }
+	    Collections.sort(cp, (a, b) -> a.first - b.first);
+	    for(int i = 0; i < cp.size(); i++) {
+	        list.add(i,cp.get(i).second);
+	    }
+		return list;
 	}
 	
 	// Function to check the Vowel
@@ -204,7 +210,8 @@ public class FinalLists extends HttpServlet{
 	out.println("</tr>");
 	out.println("<tr>");
 	out.println("  <td bgcolor=\"#84D47C\" align=\"center\" width=\"35%\" colspan=\"2\"><b> Enter Strings or Numbers as a List </b></br>");
-	out.println("    <i>*UNIQUE: duplicates will be discarded from result.</i>");
+	out.println("    <i>*UNIQUE: duplicates will be discarded from result</i>");
+	out.println("    <i>Place each string on a new line.</i>");
 	out.println("  </td>");
 	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>*Alternative Sort Options:</b></br>");
 	out.println("    <i>String Order: Basic sort\n</i></br>");
@@ -293,5 +300,4 @@ public class FinalLists extends HttpServlet{
 	out.println("");
 	out.println("</html>");
 	} // End PrintTail
-	
 }
