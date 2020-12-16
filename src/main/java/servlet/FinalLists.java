@@ -33,7 +33,7 @@ public class FinalLists extends HttpServlet{
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		String[] list;
+		ArrayList<String> list = new ArrayList<String>();
 		String result;
 		String entered = request.getParameter("listEnter");
 		String operation = request.getParameter("Operation");
@@ -44,7 +44,7 @@ public class FinalLists extends HttpServlet{
 		Scanner sc = new Scanner(entered);
 		int i = 0;
 		while(sc.hasNext()) {
-			list[i] = sc.next();
+			list.add(sc.next());
 			i++;
 		}
 
@@ -88,15 +88,15 @@ public class FinalLists extends HttpServlet{
 		PrintTail(out);
 	}
 	
-	public String[] stringSort(String[] list, String direction) {
-		Arrays.parallelSort(list);
+	public ArrayList<String> stringSort(ArrayList<String> list, String direction) {
+		Collections.sort(list);
 		return list;
 	}
 	// Turn list array to String
-	public String toList(String[] list) {
+	public String toList(ArrayList<String> list) {
 		String result = "";
-		for (int i = 0; i < list.length;i++) {
-			result += list[i] + "\n";
+		for (int i = 0; i < list.size();i++) {
+			result += list.get(i) + "\n";
 		}
 		return result;
 	}
