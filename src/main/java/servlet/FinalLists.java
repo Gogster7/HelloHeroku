@@ -16,7 +16,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "FinalLists", urlPatterns = {"/FinalLists"} )
 
-
 public class FinalLists extends HttpServlet{
 	//Location of servlet
 	static String Domain  = "gterziyshello.herokuapp.com";
@@ -108,29 +107,31 @@ public class FinalLists extends HttpServlet{
 	// Sort list related to number of vowels in a String
 	public ArrayList<String> sortVowels(ArrayList<String> list) {
 		// Vector to store the number of vowels per String
-	    ArrayList<pair> vp = new ArrayList<>();
+		ArrayList<pair> vp = new ArrayList<>();
+	    ArrayList<String> temp = new ArrayList<>();
 	    for(int i = 0; i < list.size(); i++){
 	    	String str = list.get(i);
 	    	vp.add(new pair(countVowels(str),str));
 	    }
 	    Collections.sort(vp, (a, b) -> a.first - b.first);
 	    for(int i = 0; i < vp.size(); i++) {
-	        list.add(i,vp.get(i).second);
+	        temp.add(vp.get(i).second);
 	    }
 		return list;
 	}
 	
 	// Sort list related to number of consonants in a String 
 	public ArrayList<String> sortConsonants(ArrayList<String> list) {
-		// Vector to store the number of vowels per String
+		// Vector to store the number of consonants per String
 	    ArrayList<pair> cp = new ArrayList<>();
+	    ArrayList<String> temp = new ArrayList<>();
 	    for(int i = 0; i < list.size(); i++){
 	    	String str = list.get(i);
-	    	cp.add(new pair((str.length()-countVowels(str)),str));
+	    	cp.add(new pair((countConsonants(str)),str));
 	    }
 	    Collections.sort(cp, (a, b) -> a.first - b.first);
 	    for(int i = 0; i < cp.size(); i++) {
-	        list.add(i,cp.get(i).second);
+	        temp.add(cp.get(i).second);
 	    }
 		return list;
 	}
@@ -154,6 +155,20 @@ public class FinalLists extends HttpServlet{
 	            ++count;	             
 	    return count;
 	}
+	
+	// Returns count of consonants in string
+		public int countConsonants(String str)
+		{
+		    int count = 0;
+		    for(int i = 0; i < str.length(); i++)	
+		    	// Check for number
+		    	if (Character.isDigit(str.charAt(i)))
+		    		continue;
+		        // Check for vowel
+		    	else if (!isVowel(str.charAt(i))) 
+		            ++count;	             
+		    return count;
+		}
 	
 	// Sort list related to length of string 
 	public String sortLength(ArrayList<String> list) {
@@ -213,7 +228,7 @@ public class FinalLists extends HttpServlet{
 	out.println("    <i>*UNIQUE: duplicates will be discarded from result</i></br>");
 	out.println("    <i>Place each string on a new line.</i>");
 	out.println("  </td>");
-	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>*Alternative Sort Options:</b></br>");
+	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>*Alternate Sort Options:</b></br>");
 	out.println("    <i>String Order: Basic sort\n</i></br>");
 	out.println("    <i>Length: String Length</i></br>");
 	out.println("    <i>Vowels: Number of vowels</i></br>");
