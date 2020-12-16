@@ -42,22 +42,18 @@ public class FinalLists extends HttpServlet{
 		
 		// create array from entered string
 		Scanner sc = new Scanner(entered);
-		int i = 0;
 		while(sc.hasNext()) {
-			list.add(sc.next());
-			i++;
+			String n = sc.next();
+			// Unique: Check for duplicates	
+			if (list.contains(n)) {
+				continue;
+			}
+			list.add(n);
 		}
-
+		// Sorting Order Selection
 		switch(sortOrder) {
-		   case "Numbers First" :
-			  
-			  result = toList(list);
-		      break;
-		   case "Strings First" :
-
-		      break; 
 		   case "String Order" :
-			   list = stringSort(list, direction);
+			   Collections.sort(list);
 			   result = toList(list);
 			   break; 
 		   case "Length" :
@@ -73,14 +69,18 @@ public class FinalLists extends HttpServlet{
 			  result = toList(list);
 		      break; 
 		   default :
-			   result = request.getParameter("listEnter");   
+			   result = toList(list);   
+		}
+		// Ascending | Descending 
+		if (direction.equals("D")) {
+			Collections.reverse(list);
 		}
 		// Reset
 		if (operation.contentEquals(Reset)) {
 			entered = "";
 			result = "";
 		}
-		
+		// Return Response
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		PrintHead(out);
@@ -88,10 +88,6 @@ public class FinalLists extends HttpServlet{
 		PrintTail(out);
 	}
 	
-	public ArrayList<String> stringSort(ArrayList<String> list, String direction) {
-		Collections.sort(list);
-		return list;
-	}
 	// Turn list array to String
 	public String toList(ArrayList<String> list) {
 		String result = "";
@@ -144,7 +140,8 @@ public class FinalLists extends HttpServlet{
 	out.println("<center>");
 	out.println("");
 	//
-	out.println("<table border=\"0\" cellpadding=\"2\" cellspacing=\"1\" width=\"70%\" align=\"center\">");
+	//out.println("<table border=\"0\" cellpadding=\"2\" cellspacing=\"1\" width=\"70%\" align=\"center\">");
+	out.println("<table border=\"0\"  width=\"70%\" align=\"center\">");
 	out.println("<tr>");
 	out.println("  <td width=\"90%\" colspan=\"8\">");
 	out.println("    <hr>");
@@ -155,10 +152,10 @@ public class FinalLists extends HttpServlet{
 	out.println("    <i>*UNIQUE: duplicates will be discarded from result.</i>");
 	out.println("  </td>");
 	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>Alternative Sort Options:</b></br>");
-	out.println("    <i>1 & 2:Alphabetical and Numerical ordering\n</i>");
-	out.println("    <i>Length:String Length</i></br>");
+	out.println("    <i>String Order: Basic sort\n</i></br>");
+	out.println("    <i>Length: String Length</i></br>");
 	out.println("    <i>Vowels: Number of vowels</i></br>");
-	out.println("    <i>Consonants:Number of those</i></br>");
+	out.println("    <i>Consonants: Number of those</i></br>");
 	out.println("  </td>");
 	out.println("");
 	//71out.println("  <td width=\"2%\" colspan=\"1\">&nbsp;&nbsp;</td>");
@@ -176,7 +173,7 @@ public class FinalLists extends HttpServlet{
 	out.println("</textarea>");
 	out.println("  </td>");
 	//out.println("  <td width=\"2%\" colspan=\"1\">&nbsp;&nbsp;</td>");
-	out.println("  <td width=\"20%\" colspan=\"2\" align=\"center\">");
+	out.println("  <td bgcolor=\"#F58080\" width=\"20%\" colspan=\"2\" align=\"center\">");
 	out.println("    <table border=\"0\">");
 	out.println("      <tr>");
 	out.println("        <td>");
@@ -209,8 +206,6 @@ public class FinalLists extends HttpServlet{
 	out.println("          <p>SORT OPTIONS:</p>");
 	out.println("          <select name=\"sorter\">");
 	out.println("          <option value=\"AS ENTERED\" selected=\"selected\">AS ENTERED</option>");
-	out.println("          <option value=\"Numbers First\">Numbers First</option>");
-	out.println("          <option value=\"Strings First\">Strings First</option>");
 	out.println("          <option value=\"String Order\">String Order</option>");
 	out.println("          <option value=\"Length\">Length</option>");
 	out.println("          <option value=\"Vowels\">Vowels</option>");
