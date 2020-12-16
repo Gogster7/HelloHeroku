@@ -33,8 +33,8 @@ public class FinalLists extends HttpServlet{
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
+		String result = "";
 		ArrayList<String> list = new ArrayList<String>();
-		String result;
 		String entered = request.getParameter("listEnter");
 		String operation = request.getParameter("Operation");
 		String direction = request.getParameter("orderOption");
