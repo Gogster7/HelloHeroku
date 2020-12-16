@@ -151,7 +151,7 @@ public class FinalLists extends HttpServlet{
 	out.println("  <td bgcolor=\"#84D47C\" align=\"center\" width=\"35%\" colspan=\"2\"><b> Enter Strings or Numbers as a List </b></br>");
 	out.println("    <i>*UNIQUE: duplicates will be discarded from result.</i>");
 	out.println("  </td>");
-	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>Alternative Sort Options:</b></br>");
+	out.println("  <td bgcolor=\"#E8E47D\" align=\"center\" width=\"35%\" colspan=\"2\"><b>*Alternative Sort Options:</b></br>");
 	out.println("    <i>String Order: Basic sort\n</i></br>");
 	out.println("    <i>Length: String Length</i></br>");
 	out.println("    <i>Vowels: Number of vowels</i></br>");
@@ -177,12 +177,12 @@ public class FinalLists extends HttpServlet{
 	out.println("    <table border=\"0\">");
 	out.println("      <tr>");
 	out.println("        <td>");
-	out.println("          <label><input checked type=\"radio\" value=\"A\" id = \"orderOption\" name=\"replacementOption\">Ascending</label>");
+	out.println("          <label><input checked type=\"radio\" value=\"A\" id = \"orderOption\" name=\"orderOption\">Ascending</label>");
 	out.println("        </td>");
 	out.println("      </tr>");
 	out.println("      <tr>");
 	out.println("        <td>");
-	out.println("          <label><input type=\"radio\" value=\"D\" id = \"orderOption\" name=\"replacementOption\">Descending</label>");
+	out.println("          <label><input type=\"radio\" value=\"D\" id = \"orderOption\" name=\"orderOption\">Descending</label>");
 	out.println("        </td>");
 	out.println("      </tr>");
 	out.println("      <tr cellpadding=\"2\">");
@@ -216,6 +216,7 @@ public class FinalLists extends HttpServlet{
 	out.println("    </table>");
 	out.println("  </td>");
 	out.println("</tr>");
+	out.println("<hr>");
 	out.println("</table>");
 	out.println("</form>");
 	out.println("</body>");
