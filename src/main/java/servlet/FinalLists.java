@@ -13,14 +13,14 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-@WebServlet( name = "finalLists", urlPatterns = {"/finalLists"} )
+@WebServlet( name = "FinalLists", urlPatterns = {"/FinalLists"} )
 
 
 public class FinalLists extends HttpServlet{
 	//Location of servlet
 	static String Domain  = "gterziyshello.herokuapp.com";
 	static String Path    = "";
-	static String Servlet = "finalLists";
+	static String Servlet = "FinalLists";
 	
 	//Button labels
 
